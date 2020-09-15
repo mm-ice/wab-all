@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="text" class="uname">
+<input type="checkbox" name="" id=" flag">
+<script>
+    var flag =document.querySelector("#flag")
+    var uname = document.querySelector(".uname")
+    if(localStorage.getItem("uname")){
+        uname.value=localStorage.getItem("uname")
+        flag.chenked=true
+    }  
+    flag.oncjange = function(){
+        if(this.checked){
+            localStorage.setItem("uname",uname.value)
+        } else{
+            localStorage.setItem("uname")
+            uname.value=""
+        }
+    }
+</script> 
+</body>
+</html>

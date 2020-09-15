@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li{
+            list-style: none;
+        }
+        body {
+            perspective: 500px;
+        }
+        
+        .box {
+
+            position: relative;
+            margin: 100px auto;
+            width: 80px;
+            height: 50px;
+            transform-style: preserve-3d;
+            transition: all .3s;
+
+        }
+        .box:hover{
+            transform: rotateX(90deg);
+        }
+
+        .box1,
+        .box2 {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 80px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+        .box1{
+            background-color:plum;
+            transform: translateZ(25px);
+          
+        }
+        .box2{
+            background-color: purple;
+        transform:translateY(25px)   rotateX(-90deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li class="box1">111111</li>
+            <li class="box2">222222</li>
+        </ul>
+    </div>
+</body>
+
+</html>

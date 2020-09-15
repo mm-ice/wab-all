@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 400px;
+            position: relative;
+            border-bottom: 1px solid #ccc;
+            margin: 100px auto;
+        }
+
+        .box img {
+            width: 24px;
+            position: absolute;
+            right: 5px;
+            bottom: 5px;
+
+        }
+
+        .box input {
+            width: 370px;
+            height: 30px;
+            border: none;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img src="img/close.png" alt="">
+        <input type="password">
+    </div>
+
+    <script>
+        var img = document.querySelector("img")
+        var input = document.querySelector("input")
+
+        // img.onclick = function () {
+
+        //     if (img.src === "file:///C:/Users/86185/Desktop/%E5%89%8D%E7%AB%AF%E7%BB%83%E4%B9%A0/wabapi/img/close.png") {
+        //         img.src = "img/open.png"
+        //         input.type = "text"
+        //     } else {
+        //         img.src = "img/close.png"
+        //         input.type = "password"
+        //     }
+        // }
+        flag=true
+        img.onclick=function(){
+            if(flag==true){
+                img.src="img/open.png"
+                input.type="texe"
+                flag=false
+              
+            } else {
+                img.src="img/close.png"
+                input.type="password"
+               flag=true
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <form action=""  id=" form1">
+         <!--autocomplete规定表单或者输入字段是否自动填充 -->
+       <input type="text" name=" uname" autocomplete="off">
+       <input type=" password" name = "upwd" >
+       <button type="submit">提交</button>
+     </form>
+     <script>
+        //   通过DOM操作来获取到form表单元素
+  var  form= document.querySelector("#form1")
+  form.addEventListener("submit" ,function(e){
+    //    阻止表单默认行为
+      e.preventDefault()
+    //    实例表单对象 把获取到的from数据放到实例对象中
+      var fd= new FormData(form)
+    //    在发送ajax请求把表单数据放到服务器中
+      var xhr = new  XMLHttpRequest()
+      xhr.open("post",'http://www.escook.cn:3006/api/formdata' )   
+      xhr.send(fd)
+      xhr.onreadystatechange= function(){
+          if(xhr.readyState=4 && xhr.status===200){
+              console.log(JSON.parse(xhr.responseText));
+          }
+      }  
+  })
+
+     </script>
+</body>
+</html>

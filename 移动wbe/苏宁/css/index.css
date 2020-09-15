@@ -1,0 +1,144 @@
+a {
+  text-decoration: none;
+}
+html {
+  font-size: 50px;
+}
+@media screen and (min-width: 320px) {
+  html {
+    font-size: 21.33333333px;
+  }
+}
+@media screen and (min-width: 360px) {
+  html {
+    font-size: 24px;
+  }
+}
+@media screen and (min-width: 375px) {
+  html {
+    font-size: 25px;
+  }
+}
+@media screen and (min-width: 384px) {
+  html {
+    font-size: 25.6px;
+  }
+}
+@media screen and (min-width: 400px) {
+  html {
+    font-size: 26.66666667px;
+  }
+}
+@media screen and (min-width: 414px) {
+  html {
+    font-size: 27.6px;
+  }
+}
+@media screen and (min-width: 424px) {
+  html {
+    font-size: 28.26666667px;
+  }
+}
+@media screen and (min-width: 480px) {
+  html {
+    font-size: 32px;
+  }
+}
+@media screen and (min-width: 540px) {
+  html {
+    font-size: 36px;
+  }
+}
+@media screen and (min-width: 720px) {
+  html {
+    font-size: 48px;
+  }
+}
+@media screen and (min-width: 750px) {
+  html {
+    font-size: 50px;
+  }
+}
+body {
+  min-width: 320px;
+  max-width: 15rem;
+  margin: auto;
+  background-color: #f2f2f2;
+}
+body .search {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 15rem;
+  height: 1.76rem;
+  background-color: orange;
+}
+body .search div {
+  flex: 1;
+}
+body .search div form input {
+  width: 100%;
+  margin-top: 0.24rem;
+  border: 0;
+  height: 1.32rem;
+  font-size: 0.48rem;
+  border-radius: 0.66rem;
+  padding-left: 1.1rem;
+  background-color: #fff2cc;
+}
+body .search a:first-child {
+  display: inline-block;
+  margin: 0.22rem 0.5rem 0.14rem 0.48rem;
+  width: 0.88rem;
+  height: 1.4rem;
+  background: url(../images/classify.png) no-repeat;
+  background-size: 0.88rem 1.4rem;
+}
+body .search a:last-child {
+  display: inline-block;
+  line-height: 1.4rem;
+  text-align: center;
+  margin: 0.2rem;
+  color: #fff;
+  width: 1.5rem;
+  height: 1.4rem;
+  font-size: 0.48rem;
+}
+body .banner {
+  width: 15rem;
+  height: 7.36rem;
+}
+body .banner img {
+  width: 100%;
+  height: 100%;
+}
+body .ad {
+  display: flex;
+  width: 15rem;
+}
+body .ad a {
+  flex: 1;
+}
+body .ad img {
+  width: 100%;
+  height: 100%;
+}
+body nav {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 0.2rem;
+}
+body nav a {
+  text-align: center;
+  width: 3rem;
+  height: 2.8rem;
+  font-size: 0.5rem;
+  color: #333;
+}
+body nav img {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-bottom: -0.2rem;
+}

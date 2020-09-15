@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="loading.gif" alt="">
+    <script src="./jq/jquery.js"></script>
+    <script>
+        console.log(123);
+        var time = null
+        $(document).on("mousemove", function (e) {
+           
+            console.log(e.pageX);
+            if (time) { return }
+            time = setTimeout(function () {
+                $("img").css("top", e.pageY + "px").css("left", e.pageX + "px")
+                time = null
+            }, 30)
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+.heade {
+     /* float: left; */
+    width: 1200px;
+    height: 97px;
+    margin: auto;
+}
+.heade p {
+
+    display: inline-block;
+    line-height: 97px;
+    margin-left: 20px;
+}

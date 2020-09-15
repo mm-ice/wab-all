@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body{
+      padding: 100px  300px;
+    }
+    ul{
+      float: left;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    li{
+      width: 70px;
+      height: 35px;
+      border: 1px solid red;
+      cursor: pointer;
+    }
+    #list{
+      float: left;
+      border: 1px solid red;
+    }
+    img{
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="box">
+    <ul id="left">
+      <li>冬裙</li>
+      <li>呢大衣</li>
+      <li>女包</li>
+      <li>牛仔裤</li>
+      <li>雪地靴</li>
+    </ul>
+    <div id="list">
+      <img style="display: block;" src="./images/冬裙.jpg" alt="">
+      <img src="./images/呢大衣.jpg" alt="">
+      <img src="./images/女包.jpg" alt="">
+      <img src="./images/牛仔裤.jpg" alt="">
+      <img src="./images/雪地靴.jpg" alt="">
+    </div>
+  </div>
+
+ <script src="js/jquery.js"></script>
+   <script>
+       $("ul li ") .mousemove(function(){
+            var index = $(this).index()
+            //  链式编程 先执行自己 在接着执行后面的兄弟样式
+            $ ("div img ").eq(index).show().siblings().hide()
+            // $ ("div img ").eq(index).siblings().hide()
+       })
+   </script>
+</body>
+</html>

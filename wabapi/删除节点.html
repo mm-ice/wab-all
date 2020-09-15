@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+     <button>删除</button>
+    <ul>
+        <li>11111</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+</body>
+<script>
+    var ul = document.querySelector("ul")
+    var btn = document.querySelector("button")
+    btn.onclick = function () {
+        ul.removeChild(ul.children[ul.children.length - 1])
+        if (ul.children.length == 0)
+            this.disabled = true
+    }
+</script>
+
+</html>

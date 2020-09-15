@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jq/jquery.js"></script>
+</head>
+
+<body>
+    <form action="http//www.baidu.com" method="post" id="f1">
+        <input type="text" name="name" id="text">
+        <input type="password" name="password" id="pass">
+
+        <button type="submit"  id="btn">提交</button>
+
+    </form>
+    <script>
+        // $("#f1").submit(function (e) {
+        //     console.log(123);
+        //     e.preventDefault()
+        // })
+
+        $("#f1").on("submit", function (e) {
+            console.log(123);
+            // e.preventDefault()
+            return false
+           
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var object ={
+               name:"zs" ,
+               age:18,
+               arr:[123,22,55,26],
+               obj:{address: "郑州"}
+            }
+        
+         var  nweobject={}
+        //   封装一个函数 
+         function deepCopy(newobj, oldobj){
+            //  遍历准备好的对象
+           for(var key in oldobj )  {
+            //    判断这个对象中有没有数组
+               if( oldobj[key] instanceof Array){
+                  //   赋值一个空数组 来装拷贝过来的内容
+                   newobj[key]= []
+                   console.log(newobj[key]);
+               
+                //  深拷贝 第一个值是要拷贝  第二个值是被拷贝
+                   deepCopy(newobj[key],oldobj[key])
+               }else   if( oldobj[key] instanceof Object){
+                   newobj[key]= {}
+                   deepCopy(newobj[key],oldobj[key])
+           }   else{
+               newobj[key]= oldobj[key]
+           }  
+             }}
+         deepCopy(nweobject,object)
+         console.log(nweobject);
+         nweobject.obj.cit="henan"
+         console.log(object);
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <a href="www.baidu.com" test="pang">baidu</a>
+
+    <input type="checkbox" id="test">
+
+    <script src="js/jquery.js"></script>
+    <script>
+        // 获取元素自带的属性
+        // console.log(  $('a').prop('href') )
+        //   键值对是设置属性
+        // $('a').prop('href', 'www.jd.com')
+
+        // 获取元素自定义属性
+        // console.log( $('a').attr('test') )
+        //  设置自定义属性
+        // $('a').attr('test', 'qqwer')
+        //   获取 点击状态
+        // $('#test').change(function(){
+        //   console.log( $('#test').prop('checked') )
+        // })
+
+        //   给jq对象a里 缓存内容
+        // console.log($("a"));
+        // $('a').data('age', 19)
+        // console.log($('a').data('age'))
+$("div")[2].onclick=function(){
+    console.log(123);
+}
+    </script>
+</body>
+
+</html>

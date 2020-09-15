@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 0;
+            background-color: aqua;
+        }
+        span{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 0;
+            background-color:cadetblue;
+        }
+        p{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 0;
+            top: 200px;
+            background-color:chartreuse;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <span></span>
+    <p></p>
+
+    <script>
+        var div = document.querySelector("div")
+        var span = document.querySelector("span")
+        var p = document.querySelector("p")
+        
+        function timer(obj,a) {
+            var timer = setInterval(function () {
+
+                if (obj.offsetLeft >= a) {
+
+                    clearInterval(timer)
+                    return
+                }
+                obj.style.left = div.offsetLeft + 5 + "px"
+
+
+            }, 30)
+        }
+      
+        timer(div,1000)
+        timer(span,200)
+        timer(p,600)
+        
+       
+        
+    </script>
+</body>
+
+</html>

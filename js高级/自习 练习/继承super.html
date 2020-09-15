@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script> 
+    class Fn {
+        constructor( x, y ){
+            console.log(this);
+         console.log( x+y);
+
+        }
+        
+     }
+    class Son extends Fn{
+            constructor( x, y ){
+    // 利用super来继承父构造函数里的方法
+                super(x,y)
+              console.log(x - y);
+            }
+    }
+    var obj = new Son(20, 10)
+    var z = new Fn ( 15 , 5)
+    console.log(z);
+    console.log(obj);
+     </script>
+</body>
+</html>

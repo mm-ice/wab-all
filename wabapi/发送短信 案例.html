@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="text"> <button>发送</button>
+    <script>
+        
+        var btn = document.querySelector("button")
+        btn.onclick = function(){
+            flag = 3
+            btn.innerHTML= "还剩"+flag+"秒"
+            btn.disabled= true
+            var timer = setInterval(function() {
+                if (flag>0){
+                flag--
+                btn.innerHTML= "还剩"+flag+"秒"
+            } else{
+                btn.disabled= false
+                btn.innerHTML= "发送"
+                clearInterval(timer)
+
+            }
+
+                
+            },1000)
+           
+            
+        }
+    </script>
+</body>
+</html>

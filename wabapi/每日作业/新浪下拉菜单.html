@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        dd {
+            display: block;
+            width: 200px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            background-color: pink;
+            border: slateblue 1px solid;
+        }
+
+        .a {
+            display: block;
+            width: 200px;
+            height: 40px;
+            text-align: center;
+
+            background-color: seagreen;
+
+        }
+
+        .c {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+  
+    <dl>
+        <dd class="b">微博</dd>
+        <dd class="a">私信</dd>
+        <dd class="a">私信</dd>
+        <dd class="a">私信</dd>
+        <dd class="a">私信</dd>
+    </dl>
+</body>
+<script>
+    var b = document.querySelector (".b")
+    var a = document.querySelectorAll (".a")
+    b.onclick = function () {
+        for( var i=0 ; i< a.length; i++){
+            a[i].style.display = "none"
+        }
+        
+    }
+</script>
+
+</html>

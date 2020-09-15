@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            height: 200px;
+            width: 150px;
+            border: solid 1px #ccc;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p>123132</p>
+        <p>123132</p>
+        <p>123132</p>
+        <p>123132</p>
+        <p>123132</p>
+        <p>123132</p>
+        <p>123132</p>
+        <p>123132</p>
+        <p>123132</p>
+        <p>123132</p>
+        <p>123132</p>
+        <p>123132</p>
+        <p>123132</p>
+        <p>123132</p>
+        <p>123132</p>
+        <p>123132</p>
+        <p>123132</p>
+        <p>123132</p>
+        <p>123132</p>
+        <p>123132</p>
+        <p>123132</p>
+        <p>123132</p>
+        <p>123132</p>
+        <p>123132</p>
+        <p>123132</p>
+        <p>123132</p>
+        <p>123132</p>
+
+        <p>123132</p>
+        <p>123132</p>
+    </div>
+    <script>
+        var div = document.querySelector("div")
+        //  console.log(div.offsetHeight); height+ padding+ border
+        //  console.log(div.clientHeight);  高度+padding
+        //  console.log(div.scrollHeight);真实内容高度ikot
+        div.onscroll = function () {
+
+            //  onscroll 滚动事件
+            console.log(div.scrollTop);
+            // scrollTop向上滚动的距离
+        }
+    </script>
+</body>
+
+</html>

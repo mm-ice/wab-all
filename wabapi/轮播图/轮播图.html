@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    li {
+      list-style: none;
+    }
+
+    #box {
+      position: relative;
+      margin: 50px auto 0;
+      width: 721px;
+      height: 455px;
+      border: 1px solid #ccc;
+      overflow: hidden;
+    }
+
+    #ul-list {
+      padding: 0;
+      margin: 0;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 500%;
+      height: 455px;
+    }
+
+    #ul-list li {
+      float: left;
+    }
+
+    #left,
+    #right {
+      cursor: pointer;
+      display: none;
+      user-select: none;
+      position: absolute;
+      top: 50%;
+      height: 50px;
+      width: 30px;
+      background: rgba(0, 0, 0, .4);
+      color: #fff;
+      text-align: center;
+      line-height: 50px;
+    }
+
+    #right {
+      right: 0;
+    }
+
+    #ol-list {
+      position: absolute;
+      bottom: 30px;
+      left: 100px;
+      padding: 3px 5px;
+      height: 20px;
+      border-radius: 5px;
+      background: #000;
+    }
+
+    #ol-list li {
+      cursor: pointer;
+      float: left;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: #fff;
+      margin: 2px 5px;
+    }
+
+    #ol-list .active {
+      background: red;
+    }
+  </style>
+</head>
+<script src="animate.js"></script>
+
+<body>
+  <div id="box">
+    <ul id="ul-list">
+      <li><img src="./img/focus.jpg" alt=""></li>
+      <li><img src="./img/focus1.jpg" alt=""></li>
+      <li><img src="./img/focus2.jpg" alt=""></li>
+      <li><img src="./img/focus3.jpg" alt=""></li>
+    </ul>
+    <ol id="ol-list">
+
+
+    </ol>
+
+    <div id="left">＜</div>
+    <div id="right">＞</div>
+  </div>
+
+  <script>
+    var box = document.querySelector('#box')
+    var ulList = document.querySelector('#ul-list')
+    var olList = document.querySelector('#ol-list')
+    var leftObj = document.querySelector('#left')
+    var rightObj = document.querySelector('#right')
+    //   console.log();
+    var flag = 0
+    var circle = 0
+  
+
+    box.addEventListener('mouseenter', function () {
+      leftObj.style.display = 'block'
+      rightObj.style.display = 'block'
+     
+      clearInterval(timer)
+    })
+
+
+
+    box.addEventListener('mouseleave', function () {
+      leftObj.style.display = 'none'
+      rightObj.style.display = 'none'
+timer = setInterval(function () {
+        rightObj.click()
+      }, 2000)
+    })
+    for (var i = 0; i < ulList.children.length; i++) {
+      //  遍历图片 添加相应的小圆圈
+      var li = document.createElement("li")
+
+      li.setAttribute("data-index", i)
+
+      //   给li添加点击事件
+      li.addEventListener("click", function () {
+        for (var i = 0; i < olList.children.length; i++) {
+          //  小圆圈的排他思想
+
+          olList.children[i].className = ""
+        }
+        this.className = "active"
+
+        // 获取点击的li的索引号 * 图片的宽度 的负值就等于轮播图要滚动的距离
+        var tag = -this.getAttribute("data-index") * ulList.clientWidth
+        animate(ulList, tag)
+        flag = this.getAttribute("data-index")
+        circle = this.getAttribute("data-index")
+        //  赋值全局变量 把圆点和图片序号赋值li的索引号
+       
+
+      })
+      olList.appendChild(li)
+    }
+    olList.children[0].className = "active"
+
+
+    // 克隆第一个图片 放到最后一个
+    var first = ulList.children[0].cloneNode(true)
+    ulList.appendChild(first)
+
+    //  节流阀 声明
+    var test= true
+//   右侧按钮
+    rightObj.onclick = function () {
+      if(test){ //  节流阀 要包含圆点
+        test =false
+        if ( flag==4){
+          ulList.style.left=0
+          flag=0
+        }
+        flag++
+      var tag = -flag * ulList.children[1].offsetWidth
+      //  利用回调函数 动画做完 把变量为true
+      animate(ulList, tag, function(){
+        test=true
+      })
+   
+  
+      
+      // 声明变量每点击一次 让这个变量加一 
+      // 小圆圈
+      circle++
+      if (circle ==4) {
+        circle = 0
+      }
+      for (var i = 0; i < olList.children.length; i++) {
+        //  小圆圈的排他思想
+
+        olList.children[i].className = ""
+      }
+      // 遍历圆点 利用点击次数来确认哪个圆点来添加类名
+      olList.children[circle].className = "active"
+
+    }   }
+
+// 左侧按钮
+//  节流阀 要包含圆点
+    leftObj.onclick = function () {
+     
+      if(test){
+        test =false
+      if (flag == 0) {
+
+        ulList.style.left = -(ulList.children.length - 1) * 721 + "px"
+        flag = 4
+      }
+      flag--
+      var tag = -flag * ulList.children[1].offsetWidth
+      animate(ulList, tag , function(){
+        test=true
+      })
+
+
+      circle--
+      if (circle < 0) {
+        circle = 3
+      }
+      for (var i = 0; i < olList.children.length; i++) {
+        //  小圆圈的排他思想
+
+        olList.children[i].className = ""
+      }
+      // 遍历圆点 利用点击次数来确认哪个圆点来添加类名
+      olList.children[circle].className = "active"
+    }
+    var timer = setInterval(function () {
+      rightObj.click()
+    }, 2000)}
+
+  </script>
+</body>
+
+</html>

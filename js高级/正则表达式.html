@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var reg = new RegExp(/123/)
+        //  简写 要求是里面必须包含这些数字 
+        //  字符串也可以
+        // var reg = /123/
+        // console.log( reg.test(1111));
+        // console.log( reg.test(123));
+        // console.log( reg.test(133123));
+        // console.log( reg.test("123"));
+        // var gel = /^123$/
+        // console.log(1);//true
+        // console.log(2);//true
+        // console.log(3);//true
+        // console.log(33);//false
+        // var reg =/[qewa]/
+        //  只要包含就是对的
+//    console.log(reg.test("qq"));
+//    console.log(reg.test("qwe"));
+//    console.log(reg.test("qwer"));
+//    console.log(reg.test("qwerz"));
+//  var reg =/^[^a-zA-Z0-9_-]$/;
+//   在[]里面写^是取反的意思 在外面是边界符
+//  console.log( reg.test("a"));
+//  console.log( reg.test("C"));
+//  console.log( reg.test("-"));
+//  console.log( reg.test("_"));
+//  console.log( reg.test(1));
+//  console.log( reg.test("!"));
+
+var reg = /^q{3,16}$/
+//  花括号里面的数值是限制内容的最多数和最少数
+console.log(reg.test("qqqqqqqqqqq"));
+    </script>
+</body>
+</html>

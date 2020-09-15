@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .str{
+   background-color: red;
+   width: 200px;
+   height: 10px;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+    <li>131</li>
+    <li>2161</li>
+    <li>151</li>
+    <li>21</li>
+    <li>2、</li>
+    <li>、2</li>
+    <li>、2、</li>
+    <li>、2、</li>
+    <li>2</li>
+    </ul>
+</body>
+<script>
+    console.log($("li"));
+    $("li").mouseenter(function(){
+        $(this).addClass("str").siblings().removeClass("str")   
+         })
+</script>
+<script src="../JQ/js/jquery.js"></script>
+</html>

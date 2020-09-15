@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button class="setData">存数据</button>
+  <button class="getData">取数据</button>
+  <script>
+    var setBtn = document.querySelector('.setData')
+    var getBtn = document.querySelector('.getData')
+
+    var todolist = [
+      { id: 0, username: 'zs'},
+      { id: 1, username: 'ls'},
+      { id: 2, username: 'ww'}
+    ]
+
+    setBtn.onclick = function() {
+      localStorage.setItem('todolist', todolist)  // [object Object],[object Object],[object Object]
+
+      // localStorage.setItem('todolist',  JSON.stringify( todolist ) )  //	[{"id":0,"username":"zs"},{"id":1,"username":"ls"},{"id":2,"username":"ww"}]
+    }
+
+    getBtn.onclick = function() {
+      var data = localStorage.getItem('todolist')  
+
+      console.log( data )
+
+      console.log( JSON.parse(data) )
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  <style>
+      body{
+          perspective: 400px;
+      }
+  .nav {
+          margin: 100px auto;
+          width: 200px;
+          height: 200px;
+          background-color: pink;
+          transform: translate3d(0,0,200px);
+        transform: rotateY(45deg);
+        transform-style: preserve-3d;
+      }
+      .box{
+          width: 200px;
+          height: 200px;
+          background-color:red;
+          transform: translate3d(0,0,0px);
+          
+        transition: all 1s;
+      }
+      .box:hover{
+        transform: rotateX(90deg);
+      }
+  </style>
+</head>
+<body>
+    <div class="nav">
+<div class="box"></div>
+    </div>
+</body>
+</html>

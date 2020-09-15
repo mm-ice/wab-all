@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: aqua;
+    }
+
+    span {
+      width: 50px;
+      height: 50px;
+      display: block;
+      background: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+  <script>
+    var div = document.querySelector('div')
+            // 点击触发touchstart
+    div.addEventListener('touchstart', function () {
+    //   console.log('开始摸')
+    console.log("点击触发");
+    })
+        //  点击之后滑动触发touchmove
+    div.addEventListener('touchmove', function () {
+      console.log('滑动触发')
+    })
+    //  点击离开触发touchend
+    div.addEventListener('touchend', function () {
+      console.log('点击离开触发')
+    })
+
+  </script>
+</body>
+
+</html>

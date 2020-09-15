@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+           float: left;
+           margin-left: 50px;
+        }
+        li{
+            list-style: none;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <button>菜单</button>
+        <li>1123</li>
+        <li>1123</li>
+        <li>1123</li>
+        <li>1123</li>
+    </div>
+    <div>
+        <button>菜单</button>
+        <li>1123</li>
+        <li>1123</li>
+        <li>1123</li>
+        <li>1123</li>
+    </div>
+    <div>
+        <button>菜单</button>
+        <li>1123</li>
+        <li>1123</li>
+        <li>1123</li>
+        <li>1123</li>
+    </div>
+
+    <script src="../js/jquery.js"></script>
+    <script>
+    // $("div>button").hover(function(){
+    //     $(this).siblings().stop().fadeToggle()
+        
+    // })
+    $("div>button").mouseenter(function(){
+        // console.log($(this).siblings());
+        $(this).siblings('li').fadeIn()
+    })
+    $("div>button").mouseout(function(){
+        console.log($(this).siblings());
+        $(this).siblings('li').fadeOut()
+    })
+
+
+
+
+
+
+
+
+
+ 
+    </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            perspective: 600px;
+        }
+
+        .box {
+            position: relative;
+            transform-style: preserve-3d;
+            top: 200px;
+            left: 50%;
+            margin-left: -150px;
+
+            /* transform: translateX(-50%); */
+            width: 300px;
+            height: 300px;
+            /* animation: box .9s infinite; */
+        }
+
+        .box:hover {
+            animation: box 5s ;
+        }
+
+        .box div {
+            position: absolute;
+            text-align: center;
+            font-size: 30px;
+            top: 0;
+            left: 0;
+            width: 300px;
+            height: 300px;
+        }
+
+        .box div:nth-child(1) {
+            background-color: #f6f;
+            transform: translateZ(150px);
+
+        }
+
+        .box div:nth-child(2) {
+            background-color: #dada;
+            transform: translateY(150px) rotateX(90deg);
+        }
+
+        .box div:nth-child(3) {
+            background-color: #cc99;
+            transform: translateY(-150px) rotateX(90deg);
+        }
+        .box div:nth-child(4){
+            background-color: #f33;
+            transform: translateZ(-150px);
+
+        }
+        .box div:nth-child(5){
+            background-color: #000;
+            transform: translateX(150px) rotateY(90deg);
+        }
+        .box div:nth-child(6){
+            background-color: gold;
+            transform: translateX(-150px) rotateY(-90deg);
+        }
+        @keyframes box {
+            0% {   transform:rotateX(0deg);
+            }
+            25%{
+                transform:rotateX(90deg);
+            }
+            50%{
+                transform:rotateY(180deg);
+            }
+            75%{
+                transform:rotateY(270deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div span {
+            display: block;
+            float: left;
+            margin-left: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+
+<body>
+    <button> gb</button>
+
+    <div><span></span>
+        <span></span>
+        <span></span></div>
+
+</body>
+
+<script>
+    var btn = document.querySelector("button")
+    var spans= document.querySelectorAll("span")
+    var h = spans [0]
+    var m = spans[1]
+    var s = spans[2]
+    var fn = function(){
+        var date = new Date()
+        h.innerHTML= date.getHours()<10?"0"+date.getHours():date.getHours()
+        m.innerHTML = date.getMinutes()<10?"0"+date.getMinutes():date.getMinutes()
+        s.innerHTML = date.getSeconds()<10?"0"+date.getSeconds():date.getSeconds()
+        
+    }
+    fn()
+    flag = setInterval(fn , 1000)
+
+   btn.onclick= function (){
+       clearInterval(flag)
+   }
+</script>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <header>
+        <section>
+            <label for="title">ToDoList</label>
+            <input type="text" id="title" name="title" placeholder="添加ToDo" required="required" autocomplete="off" />
+        </section>
+    </header>
+    <section>
+        <h2>正在进行 <span id="todocount">1</span></h2>
+        <ol id="todolist" class="demo-box">
+            <!-- <li><input type="checkbox" name="" id=""> 123</li> -->
+        </ol>
+        <h2>已经完成 <span id="donecount">1</span></h2>
+        <ul id="donelist">
+            <!-- <li><input type="checkbox" name="" id="">456</li> -->
+        </ul>
+    </section>
+    <footer>
+        Copyright &copy; 2014 todolist.cn
+    </footer>
+
+    <script src="../js/jquery.js"></script>
+    <script>
+        function setLocalData(str) {
+            //  转成字符串来储存
+            localStorage.setItem("todolist", JSON.stringify(str))
+        }
+        function get() {
+            var str = localStorage.getItem("todolist")
+            if (str) {
+                //  转成数组类型
+                return JSON.parse(str)
+            } else {
+                return []
+            }
+        }
+        function lod() {
+            data= get()
+     var str= 0
+     var sky = 0
+             
+            //  清空页面元素
+            $("#todolist,#donelist").empty()
+            //  判断对象done的值 来决定添加进入哪一个
+            $.each(data, function (i,info) {
+                console.log(info.title);
+                if (info.done) {
+                    var li = $('<li><input type="checkbox" checked>' + info.title + ' <a href="javascript:;" data-index="' + i + '"></a></li>')
+                    $('#donelist').prepend(li)
+                    str++
+                } else {
+                    var li = $('<li><input type="checkbox" >' + info.title + ' <a href="javascript:;" data-index="' + i + '"></a></li>')
+                    $('#todolist').prepend(li)
+                    sky++
+                }
+
+
+            })
+            $('#donecount').text(str)
+            $('#todocount').text(sky)
+        }
+        lod()
+
+        $("#title").on("keydown", function (e) {
+            if (e.keyCode == 13) {
+                if (!$(this).val()) {
+                    alert("请输入内容")
+                    return false
+                }
+                var data = get()
+                var obj = {
+                    title: $(this).val(),
+                    done: false
+                }
+                data.push(obj)
+                // setLacalData(data)
+                setLocalData(data)
+                $(this).val("")
+                lod()
+            }
+        })
+        $("#todolist,#donelist").on ("click","a", function(){
+        //  获取 a 里面添加的index属性 来确从第几个开始 删除几个
+            var index= $(this).attr("data-index")
+            var data = get()
+            data.splice(index, 1)
+            setLocalData(data)
+            lod()
+        })
+   $("#todolist, #donelist").on("click","input", function(){
+       var  index = $(this).siblings("a").attr("data-index")
+       var data = get()
+       data[index].done=$(this).prop("checked")
+       setLocalData(data)
+       lod()
+   })
+
+    </script>
+</body>
+
+</html>

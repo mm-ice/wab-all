@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    document.addEventListener("click",function(e){
+        // page 是相对于页面的
+        console.log(e.pageX);
+        console.log(e.pageY);
+        // client是相对于可视区域的
+        console.log(e.clientX);
+        console.log(e.clientY);
+        // 相当于电脑屏幕的坐标
+        console.log(e.screenX);
+        console.log(e.screenY);
+    })
+   
+</script>
+</body>
+</html>

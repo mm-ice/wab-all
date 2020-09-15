@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function tar(){
+            var arguments
+            var str=0
+            for (var i =0; i<arguments.length; i++){
+             str=str+arguments[i]
+            }
+            return str
+        }
+      
+      var a= tar(1, 2, 3, 4)
+      console.log(a)
+
+
+
+
+        // function test(){
+        //     for (var i=0; i<arguments.length; i++){
+        //         var str=str+arguments[i]
+        //         console.log(str)
+        //     }
+        // }
+        //  test(5,10)
+
+
+// function tar(){
+//     var max=arguments[0]
+//     for (var i=0; i<arguments.length; i++){
+//         if (max<arguments[i]){
+//             max=arguments[i]
+//         }
+//     }
+//     return max
+// }
+//       console.log(tar(2, 3, 5, 6, 7, 9))
+    </script>
+</body>
+</html>

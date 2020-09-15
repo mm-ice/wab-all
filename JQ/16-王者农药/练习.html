@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            position: relative;
+            list-style: none;
+            float: left;
+            width: 69px;
+            height: 69px;
+        }
+
+        .big {
+            width: 224px;
+            height: 69px;
+            display: none;
+        }
+
+        .small {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 69px;
+            height: 69px;
+        }
+
+        .active {
+            width: 224px;
+        }
+
+        .active .big {
+            display: block;
+        }
+
+        .active .small {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="box">
+        <li class="active">
+            <img class="big" src="./images/c.png" alt="">
+            <img src="./images/c1.jpg" class="small" alt="">
+        </li>
+        <li>
+            <img class="big" src="./images/h.png" alt="">
+            <img src="./images/h1.jpg" class="small" alt="">
+        </li>
+        <li>
+            <img class="big" src="./images/l.png" alt="">
+            <img src="./images/l1.jpg" class="small" alt="">
+        </li>
+        <li>
+            <img class="big" src="./images/m.png" alt="">
+            <img src="./images/m1.jpg" class="small" alt="">
+        </li>
+    </ul>
+
+    <script src="./jquery.js"></script>
+    <script>
+        // $("ul li").mouseover(function () {
+        //     $(this).stop().animate({
+        //         width: 224
+        //     }).find(".big").stop().fadeIn().siblings('.small').stop().fadeOut()
+        //     $(this).siblings().stop().animate({
+        //         width: 80
+        //     }).find(".big").stop().fadeOut().siblings(".small").stop().fadeIn()
+            
+
+
+        // })
+$("#box li ").mouseenter(function(){
+    $(this).stop().animate({
+        width:224
+    }).find('.big').stop().fadeIn().siblings(".small").stop().fadeOut()
+    $(this).siblings().stop().animate({
+        width:68
+    }).find('.big').stop().fadeOut().siblings(".small").stop().fadeIn()
+
+})
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100%;
+            height: 175px;
+            animation: nav 13s infinite;
+        }
+
+        li {
+            list-style: none;
+          
+           
+        }
+
+        /* .nav1 {
+
+            animation: nav 3s linear infinite;
+            opacity: 1;
+
+
+        }
+
+        .nav2 {
+            animation: nav 3s linear 2s infinite;
+            opacity: 1;
+        }
+
+        .nav3 {
+            animation: nav 3s linear 4s infinite;
+            opacity: 1;
+        }
+
+        .nav4 {
+            animation: nav 3s linear 6s infinite;
+            opacity: 1;
+        } */
+
+        .box-a {
+            float: left;
+            width: 154px;
+            height: 123px;
+            background: url(txgc_6d0e9e5.png);
+            animation: bearc .4s steps(2) infinite;
+        }
+
+        .box-b {
+            float: left;
+            width: 161px;
+            height: 149px;
+            background: url(txgl_c15cfd8.png);
+            animation: bearl .4s steps(2) infinite;
+        }
+
+        .box-c {
+            float: left;
+            width: 167px;
+            height: 176px;
+            background: url(txgh_fee2457.png);
+            animation: bearh .4s steps(2) infinite;
+        }
+
+        .box-d {
+            float: left;
+            width: 170px;
+            height: 157px;
+            background: url(txgq_d281c9b.png);
+            animation: bearq .4s steps(2) infinite;
+        }
+
+
+        @keyframes bearc {
+            0% {}
+
+            100% {
+                background-position: -308px 0;
+            }
+        }
+
+        @keyframes bearh {
+            0% {}
+
+            100% {
+                background-position: -334px 0;
+            }
+        }
+
+        @keyframes bearl {
+            0% {}
+
+            100% {
+                background-position: -322px 0;
+            }
+        }
+
+        @keyframes bearq {
+            0% {}
+
+            100% {
+                background-position: -342px 0;
+            }
+        }
+
+        @keyframes nav {
+            0% {
+                transform: translate(-1000px, 0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+  <div>
+    <div class="box">
+        <ul>
+            <li class="nav1">
+                <div class="box-a"></div>
+            </li>
+            <li class="nav2">
+                <div class="box-b"></div>
+            </li>
+            <li class="nav3">
+                <div class="box-c"></div>
+            </li>
+            <li class="nav4">
+                <div class="box-d"></div>
+            </li>
+        </ul>
+    </div>
+  </div>
+</body>
+
+</html>

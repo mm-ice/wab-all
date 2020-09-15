@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes move{
+            0%{
+                transform: translateX(0px);
+            }
+            25% {
+                transform: translate(1200px,0);
+            }
+            50%{
+                transform: translate(1200px,500PX);
+            }
+            75% {
+                transform: translate(0px,500px);
+            }
+            100%{
+                transform: translate(0px);
+              
+            }
+        }
+        div:first-child{
+            width: 200px;
+            height: 300px;
+           
+            background-color: #cccfff;
+            position: relative;
+           animation-name: move;
+           animation-duration: 10s;
+           
+        }
+        div:last-child {
+            width: 300px;
+            height: 200px;
+            background-color: #cccc22;
+            transform: rotate(10deg);
+            transform: translate(-50%,100px);
+            transition: all 0.5s;
+        }
+        div:last-child:hover{
+            transform: rotate(220deg);
+        }
+        .nav {
+            width: 50px;
+            height: 50px;
+            background-color: #cf22ee;
+           border-radius: 50%;
+           margin: auto;
+          
+            /* transform: rotate(1000000deg); */
+        }
+      .nav img {
+       transition: all 30s;
+       
+      
+      }
+      .nav:hover img {
+        transform: rotate(10000000000000deg);
+        /* transform: scale(2); */
+      }
+    </style>
+</head>
+<body>
+<div> 1</div>
+<div class="nav">
+    <img src="mi-logo.png" alt="">
+</div>
+<div></div>
+
+</body>
+</html>

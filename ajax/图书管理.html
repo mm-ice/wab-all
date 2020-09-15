@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./jq/bootstrap.css" />
+    <script src="./jq/jquery.js"></script>
+</head>
+
+<body style="padding: 15px;">
+    <!-- 添加图书的Panel面板 -->
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">添加新图书</h3>
+        </div>
+        <div class="panel-body form-inline">
+
+            <div class="input-group">
+                <div class="input-group-addon">书名</div>
+                <input type="text" class="form-control" id="iptBookname" placeholder="请输入书名">
+            </div>
+
+            <div class="input-group">
+                <div class="input-group-addon">作者</div>
+                <input type="text" class="form-control" id="iptAuthor" placeholder="请输入作者">
+            </div>
+
+            <div class="input-group">
+                <div class="input-group-addon">出版社</div>
+                <input type="text" class="form-control" id="iptPublisher" placeholder="请输入出版社">
+            </div>
+
+            <button id="btnAdd" class="btn btn-primary">添加</button>
+
+        </div>
+    </div>
+    <!-- 图书的表格 -->
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>书名</th>
+                <th>作者</th>
+                <th>出版社</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody id="tb"></tbody>
+    </table>
+
+    <script>
+
+        function gets() {
+            //  封装函数来获取服务器内容
+            $.get('http://www.escook.cn:3006/api/getbooks', function (res) {
+                if (res.status !== 200) {
+                    return alert("获取内容失败")
+                }
+                var rows = []
+                console.log(res.data);
+                // 遍历获取过来的数组 来取到里面的内容动态添加到tb里渲染到页面
+                $.each(res.data, function (i, item) {
+                    rows.push("<tr><td>" + item.id + "</td><td>" + item.bookname + "</td><td>" + item.author + "</td><td>" + item.publisher + "</td><td><a  href='javascript:;' id='del' data-id='" + item.id + "' >删除</a></td></tr>")
+                })
+                //  先把#tb清空 在添加转换成字符串类型的添加进#tb
+                console.log(rows.join(""));
+                //  empty()移除子元素里和内容
+                $("#tb").empty().append(rows.join(""))
+            })
+        }
+        gets()
+        //  利用on的事件委托来给动态添加的元素注册事件
+        $("#tb").on("click", "#del", function () {
+            // 添加的自定义id来绑定遍历获取到的id来确定删除的数据
+            var id = $(this).attr("data-id")
+            console.log(id);
+            // api/delbook删除接口
+            $.get("http://www.liulongbin.top:3006/api/delbook", { id: id }, function (res) {
+                if (res.status !== 200) return alert("删除失败")
+                gets()
+            })
+        })
+        //  给添加按钮注册事件
+        $("#btnAdd").on("click", function () {
+            // 获取三个输入框的内容
+            var bookname = $("#iptBookname").val().trim()
+            var author = $("#iptAuthor").val().trim()
+            var publisher = $("#iptPublisher").val().trim()
+            // 判断输入内容的
+            if (bookname.value < 0 || author.value < 0 || publisher.value < 0) {
+                alert("请输入内容")
+            }
+            //  api/addbook"添加接口
+            $.post("http://www.liulongbin.top:3006/api/addbook", { bookname: bookname, author: author, publisher: publisher }, function (res) {
+                //  status添加状态返回值201
+                if (res.status !== 201) {
+                    return alert("添加失败")
+                }
+                // 从新加载渲染页面
+                gets()
+                $("#iptBookname").val("")
+                $("#iptAuthor").val("")
+                $("#iptPublisher").val("")
+
+            })
+        })
+    </script>
+
+</body>
+
+</html>

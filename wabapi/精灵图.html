@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            width: 200px;
+            margin: 100px auto;
+        }
+        li{
+            list-style: none;
+            width: 24px;
+            height: 24px;
+            margin: 5px 10px;
+            float: left;
+            /* background-color: aquamarine; */
+            background-image: url(img/sprite.png);
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+        var lis = document.querySelectorAll("li")
+        for(var i=0 ; i<lis.length; i++){
+            lis[i].style.backgroundPositionY = "-" + i*44 + "px"
+        }
+    </script>
+</body>
+</html>

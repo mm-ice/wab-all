@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div></div>
+
+    <script>
+        var div = document.querySelector("div")
+
+        fn()
+        setInterval(fn, 1000)
+
+        function fn() {
+
+            var date = new Date()
+            var year = date.getFullYear()
+            var month = date.getMonth()
+            var dates = date.getDate()
+            // 星期
+            var arr = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
+            var day = date.getDay()
+
+            // 时
+            var h = date.getHours() < 10 ? "0" + date.getHours() : date.getHours()
+            // 分
+            var m = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()
+            //  秒
+            var s = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds()
+            div.innerHTML = year + "年" + month + "月" + dates + "日" + arr[day] + h + ":" + m + ":" + s
+        }
+
+
+    </script>
+</body>
+
+</html>

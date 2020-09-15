@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 600px;
+            margin: 100px auto;
+        }
+
+        .mess {
+            display: inline-block;
+            font-size: 12px;
+            color: #999;
+            background: url(img/mess.png) no-repeat left center;
+            padding-left: 20px;
+            ;
+        }
+
+        .wrong {
+            color: red;
+            background-image:url(img/wrong.png)
+        }
+        .right{
+            color:blue;
+            background-image:url(img/right.png) ;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <input type="password">
+        <p class=" mess">请输入6~16位密码 </p>
+    </div>
+    <script>
+        var mess = document.querySelector(".mess")
+        var input = document.querySelector("input")
+        input.onblur = function () {
+            if (input.value.length < 6 || input.value.length > 16) {
+                mess.className = "mess wrong"
+                ness.innerHTML = "您输入的位数不对"
+            }else {
+            mess.className=" mess right";
+            mess.innerHTML="您输入正确";
+        }
+        } 
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        var time = prompt("请输入您的出生年份")
+        var yuefen = prompt("请输入您的出生月份")
+        var rizi = prompt("请输入您的出生日期")
+        var num = time + "-" + yuefen + "-" + rizi
+        function str(time) {
+            var now = +new Date()
+            var input = +new Date(time)
+            var num = (input - now) / 1000
+            var d = parseInt(num / 60 / 60 / 24)
+            var h = parseInt(num / 60 / 60 % 24)
+            var m = parseInt(num / 60 % 60)
+            var s = parseInt(num % 60)
+            alert("据您生日还有" + d + "天" + h + "小时" + m + "分钟" + s + '秒')
+        }
+        str(num)
+
+    </script>
+</body>
+
+</html>

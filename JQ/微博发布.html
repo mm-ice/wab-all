@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        发布微博
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <button>发布</button>
+        <ul></ul>
+    </div>
+    <script src="js/jquery.js"></script>
+    <script>
+        $("button").on("click", function(){
+          var  text= $("textarea").val()
+          var li = $("<li></li>")
+          li= $("<li>"+ text+ "<button> 删除</button></li>")
+            $("ul").append(li)
+            li.slideDown()
+           $("textarea").val("")
+        } )
+        $("ul  ").on("click", "button", function(){
+            $(this).parent().slideUp( function(){
+                $(this).remove()
+            })
+            
+        })
+    </script>
+</body>
+</html>

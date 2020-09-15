@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>项目</th>
+                <th>分数</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+
+    </table>
+</body>
+<script>
+
+    var datas = [
+        { name: '魏璎珞', subject: 'JavaScript', score: 100 },
+        { name: '明玉', subject: 'JavaScript', score: 88 },
+        { name: "莉莉安", subject: 'JavaScript', score: 120 },
+        { name: '弘历', subject: 'JavaScript', score: 98 },
+        { name: '傅恒', subject: 'JavaScript', score: 99 },
+    ];
+    var tb = document.querySelector("tbody")
+    for (var i = 0; i < datas.length; i++) {
+        var tr = document.createElement("tr")
+
+        for (k in datas[i]) {
+            var td = document.createElement("td")
+            td.innerHTML = datas[i][k]
+            tr.appendChild(td)
+        }
+        var td = document.createElement("td")
+        td.innerHTML = "<a 'href=javascript:;'> 删除</a>"
+        tr.appendChild(td)
+
+        tb.appendChild(tr)
+    }
+
+    var as = document.querySelectorAll("a")
+    for (var i = 0; i < as.length; i++) {
+        as[i].onclick = function () {
+            tb.removeChild(this.parentNode.parentNode)
+        }
+    }
+</script>
+
+</html>

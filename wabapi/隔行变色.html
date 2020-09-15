@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <style> 
+   li {
+       list-style: none;
+       margin: 10px 0;
+       width: 200px;
+       border: 1px solid #222;
+   }
+.bg{
+    background-color: cadetblue;
+}
+
+</style>
+</head>
+<body>
+     <ul>
+         <li>111111111</li>
+         <li> 2222222222</li>
+         <li>33333333333</li>
+         <li>4444444444444</li>
+         <li>555555555555</li>
+         <li>6666666666666666666</li>
+         <li>77777777777777777</li>
+     </ul>
+     <script>
+        //   onmouseenter鼠标移入
+         var lis =document.querySelectorAll("li")
+         for (var i=0 ; i<lis.length; i++){
+             lis[i] .onmouseenter = function(){
+                 this.className ='bg'
+             }
+            //  onmouseout 鼠标移出
+             lis[i].onmouseout = function(){
+                 this.className=''
+             }
+         }
+     </script>
+</body>
+</html>

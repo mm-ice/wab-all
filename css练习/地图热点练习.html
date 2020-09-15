@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #333;
+        }
+
+        .map {
+            position: relative;
+            width: 747px;
+            height: 616px;
+            margin: auto;
+            background-image: url(map.png);
+        }
+
+        .cd {
+            position: absolute;
+            top: 229px;
+            right: 193px;
+        }
+        .tw {
+            position: absolute;
+            top: 502px;
+            right: 84px;
+        }
+        .gd {
+            position: absolute;
+            top: 526px;
+            right: 179px;
+        }
+
+        .dian {
+            /* position: relative; */
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #0099ff;
+        }
+
+        .cd div[class^=qian]{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            box-shadow: 0 0 15px #09f;
+            animation: w 1.2s linear infinite ;
+
+        }
+    .map .cd .qian2 {
+            animation-delay:0.4s;
+        }
+        .map .cd .qian3 {
+          animation-delay: 0.8s;
+      }
+
+        @keyframes w {
+
+            70% {
+                width: 40px;
+                height: 40px;
+                opacity: 1;
+            }
+        100% {
+            width: 70px;
+            height: 70px;
+            opacity: 0;
+        }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="map">
+        <div class="cd">
+            <div class="dian"></div>
+            <div class="qian1"></div>
+            <div class="qian2"></div>
+            <div class="qian3"></div>
+        </div>
+        <div class="cd tw">
+            <div class="dian"></div>
+            <div class="qian1"></div>
+            <div class="qian2"></div>
+            <div class="qian3"></div>
+        </div>
+        <div class="cd gd">
+            <div class="dian"></div>
+            <div class="qian1"></div>
+            <div class="qian2"></div>
+            <div class="qian3"></div>
+        </div>
+    </div>
+</body>
+
+</html>

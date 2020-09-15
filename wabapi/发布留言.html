@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li{
+            list-style: none;
+            width: 200px;
+            background-color: aquamarine;
+
+        }
+    </style>
+</head>
+
+<body>
+    <textarea name="" id="" cols="30" rows="10">          
+
+    </textarea>
+    <button class="a">发布</button>
+    <ul></ul>
+  
+</body>
+<script>
+    var text = document.querySelector("textarea")
+    var btn = document.querySelector(".a")
+    var ul = document.querySelector("ul")
+   
+    btn.onclick = function () {
+        if (text.value.trim().length <= 0) {//    判断文本域里有没有内容
+            alert("请发布内容")
+            return
+        }
+        var li = document.createElement("li")
+        li.innerHTML = text.value + "<a href= 'javescript:;'>删除 </a>"; // 赋值文本域的内容
+        ul.insertBefore(li, ul.children[0])
+        text.value = " "  // 发布完让文本域默认为空
+
+        var as = document.querySelectorAll('a')
+        for(var i=0; i<as.length; i++){
+            as[i].onclick = function(){
+                ul.removeChild(this.parentNode)
+            }
+        }
+    }
+    
+</script>
+
+</html>

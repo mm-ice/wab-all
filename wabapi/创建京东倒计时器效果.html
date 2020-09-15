@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div span {
+            display: block;
+            font-size: 17px;
+            float: left;
+            margin-left: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div><span></span>
+        <span></span>
+        <span></span></div>
+
+
+    <script>
+        var spans = document.querySelectorAll("span")
+        var inputTime = +new Date('2020-8-20 20:00:00');
+        countDown()
+        setInterval(countDown, 1000)
+        function countDown() {
+            var nowTime = +new Date();
+            var str = (inputTime - nowTime)/1000
+            var h =  parseInt(str / 60 / 60 % 24)
+            spans[0].innerHTML = h
+            var m = parseInt(str / 60 % 60)
+            spans[1].innerHTML = m
+            var s = parseInt( str % 60)
+            spans[2].innerHTML = s
+        }
+    </script>
+</body>
+
+</html>

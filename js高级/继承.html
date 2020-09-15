@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+    //     class Father {
+    //         constructor(name, age) {
+    //             this.name = name
+    //             this.age = age
+    //         }
+         
+    //         sum (){
+    //                 console.log(this.name+this.age);
+    //         }
+    //     }
+    //     class Son 2 {
+    //         constructor(name, age) {
+    //             super(name, age)
+    //         }
+    //     }
+    //     var s = new Son(17, 18)
+    //   s.sum()
+
+  class Father{
+      sayHi(){
+          return 'hhahh'
+      }
+  }
+  class Son extends Father{
+    //    子函数可以直接利用super调用父元素的函数
+    //  如果自己和父函数都有  会就近原则 输出自己
+      sayHi(){
+          console.log(super.sayHi()+"zzzz");
+      }
+  }
+  var s = new Son()
+  s.sayHi()
+    </script>
+</body>
+
+</html>

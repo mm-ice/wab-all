@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jq/jquery.js"></script>
+</head>
+
+<body>
+    <input type="file" id="file1">
+    <button> 上传文件</button>
+    <br />
+
+    <img src="../loading.gif" alt="" id="loging" style="display: none;">
+    <img src="" alt="" id="imgs" width="800">
+    <script>
+        $(function () {
+            $(document).ajaxStart(function () {
+                $("#loging").show()
+            })
+            $(document).ajaxStop(function () {
+                $("#loging").hide()
+            })
+            $("button").on("click", function () {
+                var files = $("#file1")[0].files
+                if (files.length <= 0) alert("请选择要上传的文件")
+                var fd = new FormData()
+                fd.append('avear', files[0])
+                $.ajax(
+                    {
+                        method: "post",
+                        url: "http://www.escook.cn:3006/api/upload/avatar",
+                        data: fd,
+                        processData: false,
+                        contentType: false,
+                        success: function (res) {
+                         if(res.status===200){
+                             $("#imgs").prop("src",'http://www.escook.cn:3006' + res.url)
+                         }else{
+                             alert('图片上传失败！' + res.message)
+                         }
+                        }
+
+                    }
+                )
+            })
+        })
+    </script>
+
+</body>
+
+</html>

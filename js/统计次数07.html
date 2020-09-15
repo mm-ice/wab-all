@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var str= 'qwerqweqweqrqrq'
+        var obj ={}
+        for (var i=0;i<str.length; i++){
+              var chars=str[i]
+              if(obj[chars]){
+                  obj[chars]++
+              }else{
+                  obj[chars]=1
+              }
+        }
+        var munstr=""
+        var maxnum=0
+    console.log(obj);
+    for ( var o in obj){
+        if(maxnum<obj[o]){
+            maxnum=obj[o]
+            maxstr=o
+        }
+    }
+    console.log(maxnum);
+    console.log(maxstr);
+    </script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      height: 500px;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    #box {
+      position: relative;
+      width: 100%;
+      height: 150px;
+      overflow: hidden;
+    }
+
+    #box ul {
+      position: absolute;
+      width: 500%;
+      height: 150px;
+      left: -100%;
+
+    }
+
+    #box ul li {
+      float: left;
+      width: 20%;
+      height: 150px;
+    }
+
+    #box ul li img {
+      width: 100%;
+      height: 150px;
+    }
+
+    #box ol {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+    }
+
+    #box ol li {
+      float: left;
+      width: 5px;
+      height: 5px;
+      margin: 0 3px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all .1s;
+    }
+
+    #box ol .active {
+      width: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+    <ul>
+      <!-- 3 -->
+      <li><img src="./images/focus3.jpg" alt=""></li>
+      <!-- 0 -->
+      <li><img src="./images/focus1.jpg" alt=""></li>
+      <!-- 1 -->
+      <li><img src="./images/focus2.jpg" alt=""></li>
+      <!-- 2 -->
+      <li><img src="./images/focus3.jpg" alt=""></li>
+      <!-- 3 -->
+      <li><img src="./images/focus1.jpg" alt=""></li>
+    </ul>
+    <ol>
+      <li class="active"></li>
+      <li></li>
+      <li></li>
+    </ol>
+  </div>
+
+  <script>
+    var box = document.querySelector("#box")
+    var ul = document.querySelector("ul")
+    var ol = document.querySelector("ol")
+    var boxw = box.offsetWidth
+    var index = 0
+
+    var timer = setInterval(function () {
+      index++
+      var a = - boxw * index
+      ul.style.transition = "all .3s"
+      // console.log(a);
+      ul.style.transform = "translateX(" + a + "px)"
+    }, 2000)
+    ul.addEventListener("transitionend",function(){
+      console.log(index);
+      if (index >= 3) {
+        index = 0
+        ul.style.transition = "none"
+        var translatex = - index * boxw
+        ul.style.transform = "translateX(" + translatex + "px)"
+      } else if(index < 0) {
+        //  如果索引号小于0 就对应跳倒数第二张 
+        index = 2
+        var translateX = -index * boxWidth
+        ulObj.style.transition = 'none'
+        ulObj.style.transform = 'translateX(' + translateX + 'px)'
+      }
+      //  将拥有active类名的li 清除类名
+      ol.querySelector(".active").classList.remove("active")
+      // 用index来给ol里的li添加索引 来给索引对应上的来添加类名
+      ol.children[index].classList.add("active")
+  
+    })
+     var startX=0
+     var moveX=0
+    //  touchstart 点击事件
+     ul.addEventListener("touchstart",function(e){
+      //  手指到页面左侧的距离
+      startX=e.targetTouches[0].pageX
+      //  清除自动滚动的定时器
+      clearInterval(timer)
+     })
+     ul .addEventListener("touchmove", function(e){
+      //   计算鼠标滑动的距离
+    moveX=e.targetTouches[0].pageX-startX
+//  鼠标滑动后ul移动的最新位置= 在之前的位置基础上 加上鼠标滑动的距离
+    var translateX= -index*boxw+moveX
+    ul.style.transition="none"
+    ul.style.transform= "translateX("+translateX+"px)"
+     })
+ 
+    ul.addEventListener("touchend", function(){
+      // 根据滑动的距离 来判断图片是否切换
+      // 正值是下一张 负值是上一张
+      if(Math.abs(moveX)>50){
+        if(moveX>0){
+        // / 上一张
+          index--
+        }else{
+          //  下一张
+          index++
+        }
+        var translateX= -index*boxw
+        ul.style.transition="all .3s"
+        ul.style.transform="translateX("+translateX+"px)"
+      } else{
+        //  回弹
+      }
+    })
+  </script>
+
+</body>
+
+</html>

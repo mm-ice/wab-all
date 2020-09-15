@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function jisuan(num){
+            do{num=prompt("欢迎使用简易计算器：\n1.加法运算：\n2.减法运算:\n3乘法运算：\n4.除法运算：\n5.退出：\n请输入您的选项")
+               if(num<5){
+                var num1=prompt("请输入第一个数值")-0
+                var num2=prompt("请输入第二个数值")-0
+               }
+                if(num==1){
+                    a=num1+num2
+                    alert("和为"+a)
+                }
+                if(num==2){
+                b=num1-num2
+                    alert("和为"+b)
+                }
+                if(num==3){
+                    c=num1/num2
+                    alert("和为"+c)
+                }
+                if(num==4){
+                    d=num1*num2
+                    alert("和为"+d)
+                }
+            } while (num!=5) {
+                    alert("正在退出")
+            }
+        }
+        jisuan()
+    </script>
+</body>
+</html>

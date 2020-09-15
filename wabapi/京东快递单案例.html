@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+         display: none;
+            width: 200px;
+            height: 35px;
+            font-size: 20px;
+            line-height: 35px;
+            border: #333 1px solid;
+            position: absolute;
+        }
+
+        .box1 {
+            position: absolute;
+            top: 45px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <input type="text" placeholder="请输入要查询单号" class="box1">
+</body>
+<script>
+    var div = document.querySelector("div")
+    var input = document.querySelector("input")
+    
+    input.addEventListener("keyup", function () {
+        if (this.value.length > 0) {
+            div.style.display = "block"
+            div.innerHTML = this.value
+        } else {
+            div.style.display = "none"
+        }
+    })
+
+    // 失去和获取焦点
+    input.addEventListener("blur", function () {
+        div.style.display = "none"
+    })
+    input.addEventListener("focus", function () {
+        if (this.value.length > 0) {
+            div.style.display = "block"
+        }
+
+    })
+
+</script>
+
+</html>

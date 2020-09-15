@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       // 用循环判断，每次循环让这个数除以一个比他小的数，如果可以除尽的数有两个以上 (除了1和他自己) 那么他就不是素数
+    function getZhiShu(num) {
+      var num1 = 0,
+        // str = '';
+      for (var i = 1; i <= num; i++) {
+        if (num % i == 0) {
+          num1++
+        }
+      }
+      if (num1 <= 2) {
+        return alert('这是个质数')
+      } else {
+        return alert('这不是个质数')
+      }
+    }
+    getZhiShu ( num=prompt('输入一个数'))
+
+    </script>
+</body>
+</html>

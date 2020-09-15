@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            display: none;
+            list-style: none;
+            height: 200px;
+            width: 300px;
+            border: 1px solid #333;
+        }
+        
+        .str{
+          background-color: crimson;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="str">按钮1</button>
+    <button>按纽2</button>
+    <button>按钮3</button>
+    <ul>
+        <li >1111111111111</li>
+        <li>22222222222222222</li>
+        <li>3333333333333333333</li>
+    </ul>
+</body>
+
+<script src="js/jquery.js"></script>
+<script>
+    $("button").click(function(){
+        $(this).addClass("str") .siblings().removeClass("str")
+        var index = $(this).index()
+        $(" li ").eq(index).show().siblings().hide()
+    })
+</script>
+   
+</html>

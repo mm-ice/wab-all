@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var num = "qewqeyireqoqwihqlehoq";
+        // var str =num.length 字符串长度
+        // console.log(str)
+        //  取出指定位置制字符3.6.9
+        //  console.log( num.charAt(3) ); 
+        //  console.log( num.charAt(6) ); 
+        //  console.log( num.charAt(9) ); 
+        // 遍历所有字符
+        //    for (var i=0; i<num.length;i++){
+        //        console.log(num.charAt(i))
+        //    }
+        // 查找指定字符串 q
+        // var str=num.indexOf("q")
+        // console.log(str)
+        // 查找指定字符串 是否存在
+        // var str1 = prompt('请输入您要查找的字符')
+        // str = num.indexOf(str1)
+        // var num1 = 0
+        //     while (str !== -1) {
+        //         alert("所在位置是"+str)
+        //         num1++
+        //         str = num.indexOf(str1, str + 1)
+        //     }  alert(num1+"次")
+        //   替换指定字符
+        //    replace只会替换第一个字符
+        // console.log(num.replace('q','o'));
+        // // 替换选中所有字符
+        // while( num.indexOf("q")!==-1){
+        //    num=(num.replace("q","o"))
+        // } console.log(num);
+        // 截取指定位置数组1-5
+        //    console.log( num.slice(1 ,5))
+        // 找出最多次数字符 和出现位置
+
+
+        //  判断一个字符串 'abcoefoxyozzopp' 中出现次数最多的字符，并统计其次数。
+        // o.a = 1
+        // o.b = 1
+        // o.c = 1
+        // o.o = 4
+        // 核心算法：利用 charAt(） 遍历这个字符串
+        // 把每个字符都存储给对象， 如果对象没有该属性，就为1，如果存在了就 +1
+        // 遍历对象，得到最大值和该字符
+        // var a = {}
+        // for (var i = 0; i < num.length; i++) {
+        //     var str = num.charAt(i)// str 是 字符串的每一个字符
+        //     if (a[str]) { // a[str] 得到的是属性值
+        //         a[str]++;
+        //     } else {
+        //         a[str] = 1
+        //     }
+        // } console.log(a);
+        // // 2. 遍历对象
+        // var max = 0
+        // var m = ""
+        // for (var k in a) { num.push("@")
+        //     // k 得到是 属性名
+        //     // o[k] 得到的是属性值
+        //     if (a[k] > max) {
+        //         max = a[k]
+        //         m = k
+        //     }
+        // }
+        // console.log("出现最多的字符是" + m + "，" + "出现了" + max + "次")p
+        // 遍历字符串 并将遍历出来的字符串两端加@
+        num=num.split("")  
+        num.push("@")
+        num.unshift("@")
+        console.log(num)
+        console.log(num.join(""))
+
+        // var a =""
+        // for (var i = 0; i < num.length; i++) {
+        //     a = a + num[i]
+        // }
+        // console.log(a)
+    </script>
+</body>
+
+</html>

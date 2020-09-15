@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            list-style: none;
+        }
+        .box {
+            position: relative;
+            
+            height: 280px;
+            width: 520px;
+            margin: 100px auto;
+            }
+            .left {
+                left: 0;
+                position: absolute;
+                top: 50%;
+               margin-top: -15px;
+                height: 30px;
+                width: 30px;
+              background: rgba(0, 0, 0, 0.3);
+              border-radius: 0 15px 15px 0;
+              text-align: center;
+              line-height: 30px;
+              text-decoration: none;color: #fff;
+ }
+.right {
+    position: absolute;
+    right: 0;
+     top: 50%;
+     margin-top: -15px;
+     height: 30px;
+     width: 30px;
+    background: rgba(0, 0, 0, 0.3);
+              border-radius: 15px 0 0 15px;
+              text-align: center;
+              line-height: 30px;
+              text-decoration: none;color: #fff;
+}
+.nav {
+ position: absolute;
+    left: 50%;
+    bottom: 15px;
+    margin-left: -35px;
+    width: 70px;
+    height: 13px;
+    border-radius: 7px;
+    /* background:#fff; */
+    background: rgba(255,255,255,.3);
+
+}
+.nav>li {
+float: left;
+width: 8px;
+height: 8px;
+background-color: #fff;
+margin :3px;
+border-radius: 4px;
+}
+.nav>.b { 
+    background-color: #ff5000;
+
+}
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="tb.jpg" alt="">
+        <a href="#"class="left" >&lt;</a>
+       <a href="#"class="right">></a>
+       <ul class="nav">
+        <li class="b"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+       </ul>
+    </div>
+</body>
+</html>

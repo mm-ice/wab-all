@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function test(time) {
+            var today = +new Date()
+            var inputTime = +new Date(time)
+            var num = (inputTime - today) / 1000
+            var d = parseInt (num / 60 / 60 / 24)
+            var h = parseInt(num / 60 / 60 % 24)
+            var m = parseInt(num / 60 % 60)
+            var s = parseInt(num % 60)
+            console.log(d+ ' 天'+h +'时 '+m +' 分' +s+'秒')
+        }
+        test("2020-10-17")
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text " id="age">
+    <input type="button" value="设置" id="set">
+    <input type="button" value="获取" id="get">
+    <input type="button" value="删除" id="remove">
+    <input type="button" value="全部删除" id="clear">
+
+    <script>
+        var age = document.querySelector("#age")
+        var setObj = document.getElementById('set')
+        var getObj = document.getElementById('get')
+        var removeObj = document.getElementById('remove')
+        var clearObj = document.getElementById('clear')
+     
+        //   会话框存储 关闭网页就消失
+        setObj.onclick = function () {
+            console.log(age.value);
+
+
+            //  sessionStorage.setItem  设置要储存元素
+            sessionStorage.setItem('username', age.value)
+
+        }
+        getObj.onclick = function () {
+            //  获取要储存元素sessionStorage.getItem
+            console.log(sessionStorage.getItem('username'))
+        }
+        // 删除储存元素sessionStorage.removeItem
+        removeObj.onclick = function () {
+            sessionStorage.removeItem('username')
+        }
+        //   清除所有储存元素
+        clearObj.onclick = function () {
+            sessionStorage.clear()
+        }
+
+    //  本地存储  关闭网页不会消失  多个网页可以调用同一个数据
+    // setObj.onclick = function() {
+    //   localStorage.setItem('age', 19)
+    // }
+    // getObj.onclick = function() {
+    //   console.log(localStorage.getItem('age'))
+    // }
+    // removeObj.onclick = function() {
+    //   localStorage.removeItem('age') 
+    // }
+    // clearObj.onclick = function() {
+    //   localStorage.clear()
+    // }
+
+
+    </script>
+</body>
+
+</html>

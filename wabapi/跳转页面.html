@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>跳转</button>
+
+
+
+    <script>
+        var btn = document.querySelector("button")
+        btn.onclick = function () {
+            location.href = 'http:/www.itcast.cn'
+        }
+        var div = document.createElement("div")
+        flag = 5
+        div.innerHTML = "你还有" + flag + "秒自动转跳"
+        document.body.appendChild(div)
+
+        setInterval(function () {
+            flag--
+            div.innerHTML = "你还有" + flag + "秒自动转跳"
+
+
+            if (flag === 0) {
+                location.href = 'http:/www.itcast.cn'
+
+            }
+        }, 1000)
+
+
+    </script>
+</body>
+
+</html>

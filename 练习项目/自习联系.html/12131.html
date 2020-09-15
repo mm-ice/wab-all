@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    请输入姓名 <input type="text" class="x">
+    请输入邮箱<input type="text" class="e">
+    <button>添加</button>
+    <table>
+        <tr>
+            <th>姓名</th>
+            <th>邮箱</th>
+        </tr>
+        <tr>
+            <td>小黑</td>
+            <td>、3321</td>
+        </tr>
+    </table>
+
+    <script>
+        var btu = document.querySelector("button")
+        var table = document.querySelector("table")
+        var x =document.querySelector(".x")
+        var e = document.querySelector(".e")
+        btu.onclick = function () {
+         if( e.value==""||  x.value==""){
+             alert("请输入内容")
+             return
+         }
+       
+         var tr = document.createElement("tr")
+         table.appendChild(tr)
+         var td= document.createElement("td")
+         td.innerHTML=x.value 
+         var tt= document.createElement("td")
+         tt.innerHTML= e.value
+         tr.appendChild(td)
+         tr.appendChild(tt)
+         e.value=""
+         x.value=""
+        }
+    </script>
+</body>
+
+</html>

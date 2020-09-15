@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function value(num1, num2, num3) {
+        //     if (num1 - 0 > num2 - 0 && num3 - 0) {
+        //         return alert(num1)
+        //     } else if (num2 - 0 > num3 - 0 && num1 - 0) {
+        //         return alert(num2)
+        //     } else {
+        //         return alert(num3)
+
+        //     }
+
+        // }
+        // value(num1 = prompt('请输入第一个值'), num2 = prompt('请输入第二个值'), num3 = prompt('请输入第三个值'))
+
+        function value() {
+            var max = arguments[0]
+            for (var i = 0; i < arguments.length; i++) {
+                if (max < arguments[i]-0) {
+                    max = arguments[i]
+                   
+                }
+            } 
+             return max
+        }
+    var value1= value(num1 = prompt('请输入第一个值'), num2 = prompt('请输入第二个值'), num3 = prompt('请输入第三个值'))
+    alert(value1)
+
+    </script>
+</body>
+
+</html>

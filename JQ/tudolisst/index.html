@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>todo</title>
+	<link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+	<header>
+		<section>
+			<label for="title">ToDoList</label>
+			<input type="text" id="title" name="title" placeholder="添加ToDo" required="required" autocomplete="off" />
+		</section>
+	</header>
+	<section>
+		<h2>正在进行 <span id="todocount"></span></h2>
+		<ol id="todolist" class="demo-box">
+
+		</ol>
+		<h2>已经完成 <span id="donecount"></span></h2>
+		<ul id="donelist">
+
+		</ul>
+	</section>
+	<footer>
+		Copyright &copy; 2014 todolist.cn
+	</footer>
+
+	<script src="../js/jquery.js"></script>
+	<script>
+		function setLocalData(str) {
+			localStorage.setItem('todolist', JSON.stringify(str))
+		}
+
+		function getLocalData() {
+			var str = localStorage.getItem('todolist')
+			if (str) {
+				return JSON.parse(str)
+			} else {
+				return []
+			}
+		}
+
+		function loadPage() {
+			var data = getLocalData()
+			var todoCount = 0
+			var doneCount = 0
+			$('#todolist, #donelist').empty()
+			$.each(data, function (i, info) {
+				if (info.done) {
+					var li = $('<li><input type="checkbox" checked>' + info.title + ' <a href="javascript:;" data-index="' + i + '"></a></li>')
+
+					$('#donelist').prepend(li)
+
+					doneCount++
+				} else {
+					var li = $('<li><input type="checkbox">' + info.title + ' <a href="javascript:;" data-index="' + i + '"></a></li>')
+
+					$('#todolist').prepend(li)
+					todoCount++
+				}
+			})
+			$('#todocount').text(todoCount)
+			$('#donecount').text(doneCount)
+
+		}
+		loadPage()
+
+		$('#title').on('keydown', function (e) {
+			if (e.keyCode == 13) {
+				if (!$(this).val()) {
+					alert('请输入内容')
+					return false
+				}
+				var data = getLocalData()
+				var obj = {
+					title: $(this).val(),
+					done: false
+				}
+				data.push(obj)
+				setLocalData(data)
+				loadPage()
+				$(this).val('')
+			}
+		})
+
+		$('#todolist, #donelist').on('click', 'a', function () {
+			var index = $(this).attr('data-index')
+			var data = getLocalData()
+			data.splice(index, 1)
+			setLocalData(data)
+			loadPage()
+		})
+
+		$('#todolist, #donelist').on('click', 'input', function () {
+			var index = $(this).siblings('a').attr('data-index')
+			var data = getLocalData()
+			data[index].done = $(this).prop('checked')
+			setLocalData(data)
+			loadPage()
+		})
+	</script>
+</body>
+
+</html>

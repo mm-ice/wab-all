@@ -1,0 +1,111 @@
+body {
+    width: 100%;
+    max-width: 640px;
+    min-width: 320px;
+    margin: 0 auto;
+    font-size: 20px;
+}
+header{
+    height: 126px;
+    background-color: #44b181;
+   padding-top: 68px;
+}
+.header-nav div{
+   float: left;
+   width: 33.3%;
+    height: 38px;
+    line-height: 38px;
+    color: #fff;
+}
+.header-nav div:nth-child(1) {
+    padding-top: 3px;
+}
+.header-nav div:nth-child(1) img{
+   widows: 25px; ;
+   height: 22px;
+   margin: 0 10px 2px;
+}
+.header-nav div:nth-child(2){
+   font-size: 25px;
+   text-align: center;
+}
+.header-nav div:nth-child(3) img{
+  float: right;
+  margin-top: 15px;
+  margin-right: 10px;
+width: 30px;
+height: 9px;
+}
+nav {
+    height: 80px;
+    padding: 0 5%;
+    
+    
+} 
+nav div{
+   position: relative;
+    width: 33.3%;
+    float: left;
+    text-align: center;
+    line-height: 92px;
+}
+
+nav div:nth-child(1){
+    border-bottom: 2px solid #44b181;
+}
+nav div:nth-child(1)::after{
+    position: absolute;
+    top: 37px;
+    left: 124px;
+    content: '';
+    display: block;
+    width: 1px;
+    height: 20px;
+    background-color: #ccc;
+}
+nav div:nth-child(2)::after{
+    position: absolute;
+    top: 37px;
+    left: 124px;
+    content: '';
+    display: block;
+    text-align: center;
+    width: 1px;
+    height: 20px;
+    background-color: #ccc;
+}
+.guanggao img {
+   width: 100%;
+
+}
+
+
+.bd {
+    height: 254px;
+    padding-left: 10px;
+}
+.bd p:first-child {
+    font-size: 25px;
+  margin-bottom: 20px;
+}
+.bd p:nth-child(2) {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+.bd p span {
+    display: inline-block;
+    width:2px;
+    height: 16px;
+    background-color: #ccc;
+    margin: 0 10px;
+}
+.ting div {
+float: left;
+}
+
+.ting div:nth-child(2){
+    margin-top: 21px;
+    margin-left: 23px;
+}

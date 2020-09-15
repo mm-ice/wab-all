@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            margin: 100px, auto;
+            background-color: aquamarine;
+            border-top: transparent 1px solid;
+        }
+
+        .text {
+            width: 200px;
+            height: 150px;
+            background-color: brown;
+
+            margin: 50px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="text"></div>
+    </div>
+</body>
+<!-- 在监听函数后面加true 会使事件流程变成捕获流程  不添加或者加falas 是冒泡事件 -->
+<script>
+    var box = document.querySelector(".box")
+    var text = document.querySelector(".text")
+    // text.addEventListener("click", function () {
+    //     alert(1)
+    // }, true)
+    // box.addEventListener("click", function () {
+    //     alert(2)
+    // }, true)
+    //  targat 谁触发的事件 就指向谁
+    //  e 是相当于函数事件的形参 代表的是注册事件
+    box.onclinck = function (e) {   
+        console.log(e.targat);
+        //  this 代表的是谁注册事件就指向谁
+        console.log( this);
+    }
+
+</script>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrong {
+            color:red;
+        }
+        .right{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <input type="text"> <span></span>
+    <script>
+var input=document.querySelector("input")
+var span = document.querySelector("span")
+var reg = /^1[3587]\b{9}$/
+input.onblur= function(){
+    if(reg.test(this.value)){
+      span.className="right"
+      span.innerHTML="输入正确"
+    }else{
+        span.className="wrong"
+      span.innerHTML="输入不正确"
+    }
+}
+    </script>
+</body>
+</html>

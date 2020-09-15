@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//          var name = "The Window";
+//    var object = {
+//      name: "My Object",
+//      getNameFunc: function() {
+//      return function() {
+//      return this.name;
+//      };
+//    }
+//  };
+// //  object 调用的 但是obj不是函数 没有作用域 this是指window所以指向的是最外层的name
+// console.log(object.getNameFunc()())
+var name = "The Window";　　
+  var object = {　　　　
+    name: "My Object",
+    getNameFunc: function() {
+    var that = this;
+    return function() {
+    return that.name;
+    };
+  }
+};
+//  给函数里的this赋值给that 所以这个this就会指调用这个函数里的了
+console.log(object.getNameFunc()())
+       
+    </script>
+</body>
+</html>

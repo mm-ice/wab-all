@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li{
+            width: 200px;
+            height: 200px;
+            list-style: none;
+            line-height: 100%;
+            font-size: 30px;
+            background-color: brown;
+            display: none;
+
+        }
+        .str{
+            display: block;
+        }
+        .tar{
+            background-color: brown;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="../js/jquery.js"></script>
+    <script>
+        $ (function () {
+           $('button').hover(function(){
+               console.log(1233);
+            //  $(this).addClass("tar")
+            //  $(this).siblings().removeClass("tar")
+            $(this).css("background-color", "pink")
+            $(this).siblings().css("background-color", "")
+
+             $('ul li').eq($(this).index()).addClass("str").siblings().removeClass("str")
+           } )
+
+        })
+            
+     
+    </script>
+    
+    <div>
+        <button class="tar">11111</button>
+        <button>22222</button>
+        <button>33333</button>
+                <ul>
+                    <li class="str">1111111</li>
+                    <li>222222</li>
+                    <li>3333333</li>
+                </ul>
+    </div>
+    
+    </body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            display: none;
+            list-style: none;
+            height: 200px;
+            width: 300px;
+            border: 1px solid #333;
+        }
+    </style>
+</head>
+
+<body>
+    <button>按钮1</button>
+    <button>按纽2</button>
+    <button>按钮3</button>
+    <ul>
+        <li>1111111111111</li>
+        <li>22222222222222222</li>
+        <li>3333333333333333333</li>
+    </ul>
+</body>
+<script>
+    var btn = document.querySelectorAll("button")
+    var lis = document.querySelectorAll("li")
+    for (var i = 0; i < btn.length; i++) {
+        // 添加属性要在点击事件上面
+        btn[i].setAttribute('index', i) 
+
+        btn[i].onclick = function () {
+
+            for (var i = 0; i < btn.length; i++) {
+                btn[i].style.backgroundColor = ""
+            }
+            this.style.backgroundColor = "pink"
+
+            for (var j = 0; j < lis.length; j++) {
+
+                lis[j].style.display = "none"
+
+            }
+            console.log(this.getAttribute("index"))
+                //   把liS赋值btn的索引属性
+            var index = this.getAttribute("index")
+            lis[index].style.display = "block";
+        }
+
+    }
+
+
+</script>
+
+</html>

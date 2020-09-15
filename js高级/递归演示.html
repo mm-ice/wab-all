@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var num = 1
+        function fn() {
+            if(num>6){
+                return
+            }
+            num++
+            console.log(123);
+            fn()
+        }
+        fn()
+    function jc (n){
+        if(n==1){
+            return 1
+        }
+        // 后面的函数没有计算出结果就会一直计算下去 就会一直被前面的乘
+        return n * jc(n-1)
+    }
+    var num = jc(5)
+    console.log(num);
+    </script>
+</body>
+
+</html>

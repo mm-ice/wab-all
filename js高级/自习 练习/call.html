@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function str(x, y) {
+            console.log(this);
+            console.log(x + y);
+        }
+        var a = {
+            name: "kand"
+        }
+         // call 第一个值是 调用者   会改变原本函数 this的指向
+        str.call(a, 10, 15)
+    </script>
+</body>
+
+</html>

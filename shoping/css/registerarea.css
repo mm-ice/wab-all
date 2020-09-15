@@ -1,0 +1,163 @@
+
+.w {
+    margin: auto;
+    width: 1200px;
+}
+.logo {
+    height: 79px;
+    margin: auto ;
+    padding-top: 13px;
+    border-bottom:  2px solid #c81523;
+}
+.bd {
+    height: 522px;
+    border: 1px solid #e4e4e4;
+}
+.denglu {
+    margin-top: 20px;
+    height: 42px;
+    line-height: 42px;
+    font-size: 16px;
+  
+    background-color: #e4e4e4;
+}
+.denglu h3 {
+    margin: 0 10px;
+    font-weight: 400;
+}
+.denglu span{
+    float: right;
+    font-size: 14px;
+}
+.denglu span a {
+    color: #c81523;
+}
+.form {
+    width: 600px;
+    height: 376px;
+    margin: 30px auto 0;
+    /* background-color: pink; */
+}
+.form ul {
+    text-align: center;
+}
+    .form ul li  {
+        margin-bottom: 20px;
+
+        
+    }
+.form ul li input[type="text"] {
+    width: 242px;
+    height: 37px;
+    border: 1px solid #e4e4e4;
+}
+.form ul li i {
+    width: 20px;
+    height: 20px;
+    
+}
+ .form ul li  label {
+     display: inline-block;
+    width: 88px;
+    text-align: right;
+}
+.form ul .anquan {
+    padding-left: 170px;
+    text-align: left;
+}
+.form ul li .red {
+    background-color:red;
+    padding: 0 10px;
+    color: #fff;
+}
+.form ul li .yl {
+    background-color:yellow;
+    padding: 0 10px;
+    color: #fff;
+}
+.form ul li .ge {
+    background-color:green;
+    padding: 0 10px;
+    color: #fff;
+}
+.form ul li  a {
+    color: #1ba1e6;
+}
+.xieyi {
+    text-align: left;
+    padding-left: 120px;
+}
+.but button {
+    width: 200px;
+    height: 34px;
+    background-color:red;
+    color:#fff; 
+}
+.but {
+    text-align: left;
+    padding-left: 105px;
+    padding-top: 20px;
+}
+
+/* 底部模块 */
+
+.footer {
+    height: 415px;
+    background-color: #f5f5f5;
+    padding-top: 30px;
+}
+.mod_service {
+    height: 80px;
+    border-bottom: 1px solid #ccc;
+}
+.mod_service ul li {
+    float: left;
+    width: 300px;
+    height: 50px;
+    padding-left: 35px;
+}
+.mod_service ul li h5 {
+    float: left;
+    width: 50px;
+    height: 50px;
+    background: url(../images/icons.png) no-repeat -252px -2px;
+    margin-right: 8px;
+}
+.service_txt h4 {
+    font-size: 14px;
+}
+.service_txt  p {
+    font-size: 12px;
+}
+.mod_help {
+    height: 185px;
+    border-bottom: 1px solid #ccc;
+    padding-top: 20px;
+    padding-left: 50px;
+}
+.mod_help dl {
+    float: left;
+    width: 200px;
+}
+.mod_help dl:last-child {
+    width: 90px;
+    text-align: center;
+}
+.mod_help dl dt {
+    font-size: 16px; 
+    margin-bottom: 10px;
+}
+.mod_copyright {
+    text-align: center;
+    padding-top: 20px;
+}
+.links {
+    margin-bottom: 15px;
+}
+.links a {
+    margin: 0 3px;
+}
+.copyright {
+    line-height: 20px;
+    
+}

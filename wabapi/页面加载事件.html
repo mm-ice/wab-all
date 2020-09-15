@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>1111</div>
+
+
+    <script>
+        // 1.可以在标签上面写js
+
+        // 1.1 只能写一个不能写多个事件  多个只会执行最后一个
+ window.onload = function(){
+     console.log(156);
+ }
+        //    1.2 把文档文件先预解析 在执行 会有点慢 可以执行多个
+        window.addEventListener("load", function(){
+            console.log((123));
+        })
+        window.addEventListener("load",function(){
+            console.log(456);
+        })
+// 1.3  执行比较快  只会与解析 获取的dom 元素 可以多个执行
+        window.addEventListener("DOMContentLoaded",function(){
+          console.log(168);
+        })
+    </script>
+</body>
+</html>

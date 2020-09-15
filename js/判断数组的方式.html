@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        var arr = [ 5,'q', 'w' , 'e']
+        var tar = '1'
+        console.log(arr instanceof Array)
+        console.log(Array.isArray(tar))
+        // push在后面添加
+        console.log(arr.push(1, 'p'))
+        // 在面添加   打印是返回值是数组的长度
+        console.log(arr.unshift(5, "p"))
+        console.log(arr)
+        console.log(arr.shift())
+        console.log(arr)
+        console.log(arr.pop())
+        console.log(arr)
+
+    </script>
+</body>

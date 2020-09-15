@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        li {
+            list-style: none;
+        }
+
+        #box {
+            position: relative;
+            margin: 50px auto 0;
+            width: 721px;
+            height: 455px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+        }
+
+        #ul-list {
+            padding: 0;
+            margin: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 500%;
+            height: 455px;
+        }
+
+        #ul-list li {
+            float: left;
+        }
+
+        #left,
+        #right {
+            cursor: pointer;
+            display: none;
+            user-select: none;
+            position: absolute;
+            top: 50%;
+            height: 50px;
+            width: 30px;
+            background: rgba(0, 0, 0, .4);
+            color: #fff;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        #right {
+            right: 0;
+        }
+
+        #ol-list {
+            position: absolute;
+            bottom: 30px;
+            left: 100px;
+            padding: 3px 5px;
+            height: 20px;
+            border-radius: 5px;
+            background: #000;
+        }
+
+        #ol-list li {
+            cursor: pointer;
+            float: left;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #fff;
+            margin: 2px 5px;
+        }
+
+        #ol-list .active {
+            background: red;
+        }
+    </style>
+</head>
+<script src="animate.js"></script>
+
+<body>
+    <div id="box">
+        <ul id="ul-list">
+            <li><img src="./img/focus.jpg" alt=""></li>
+            <li><img src="./img/focus1.jpg" alt=""></li>
+            <li><img src="./img/focus2.jpg" alt=""></li>
+            <li><img src="./img/focus3.jpg" alt=""></li>
+        </ul>
+        <ol id="ol-list">
+
+
+        </ol>
+
+        <div id="left">＜</div>
+        <div id="right">＞</div>
+    </div>
+</body>
+<script>
+    var box = document.querySelector('#box')
+    var ulList = document.querySelector('#ul-list')
+    var olList = document.querySelector('#ol-list')
+    var leftObj = document.querySelector('#left')
+    var rightObj = document.querySelector('#right')
+    var num = 0
+    var flag = 0
+    box.addEventListener("mouseenter", function () {
+        leftObj.style.display = "block"
+        rightObj.style.display = "block"
+    })
+    box.addEventListener("mouseleave", function () {
+        leftObj.style.display = "none"
+        rightObj.style.display = "none"
+    })
+    for (var i = 0; i < ulList.children.length; i++) {
+        var li = document.createElement("li")
+        li.setAttribute("data-index", i)
+        olList.appendChild(li)
+        li.onclick = function () {
+            for (var i = 0; i < olList.children.length; i++) {
+                olList.children[i].className = ""
+            }
+            this.className = "active"
+
+            var index = -this.getAttribute("data-index") * ulList.children[0].offsetWidth
+            animate(ulList, index)
+            flag = index
+            num = index
+
+        }
+    } olList.children[0].className = "active"
+    var zor = ulList.children[0].cloneNode(true)
+    ulList.appendChild(zor)
+
+    rightObj.onclick = function () {
+        if (flag == 4) {
+            ulList.style.left = 0
+            flag = 0
+        }
+        flag++
+        var index = - flag * ulList.children[0].offsetWidth
+        animate(ulList, index)
+
+        num++
+        if (num ==olList.children.length ) {
+            num = 0
+        }
+        for (var i = 0; i < olList.children.length; i++) {
+            olList.children[i].className = ""
+        }
+        olList.children[num].className = "active"
+    }
+</script>
+
+</html>

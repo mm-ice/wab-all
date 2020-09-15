@@ -1,0 +1,159 @@
+
+ ul {
+     list-style: none;
+     margin: 0;
+     padding: 0;
+ }
+ a {
+     text-decoration: none;
+ }
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+ body {
+     margin: auto;
+     width: 100%;
+     max-width: 640px;
+     min-width: 320px;
+     background-color: #f8f8f8;
+ }
+ nav {
+     position: relative;
+     width: 100%;
+     height:41px ;
+     background-color: #f8f8f8;
+ }
+ nav  ul {
+     display: flex;
+     line-height: 41px;
+ }
+ nav ul li {
+     flex: 1;
+    text-align: center;
+    
+ }
+ nav ul li a {
+     color: #666666;
+ }
+  nav span {
+     position: absolute;
+     top: 0;
+     right: 0;
+     height: 100%;
+     width: 40px;
+     line-height: 41px;
+     font-size: 30px;
+     text-align: center;
+     background-color: #f8f8f8;
+ }
+ .logo {
+    padding-top: 20px;
+     width: 100%;
+     height: 108px;
+ }
+ .logo img {
+     display: block;
+     margin:auto;
+     width: 33.3%;
+     height: 60px;
+ }
+ .hd
+   {
+       height: 175px;
+    padding: 0 20px;
+    background-color: #fff;
+
+}
+ .search{
+   padding-left: 10px;
+     display: flex;
+     height: 46px;
+     width: 100%;
+     border: 1px solid #000;
+ }
+ .search .search-1 {
+  
+  flex: 1;
+    border: 0;
+    outline:none;  
+ }
+
+ .wz {
+     height: 46px;
+     width: 84px;
+     line-height: 46px;
+     text-align: center;
+     border-left: 1px solid #ccc;  
+    }
+    .wz a {
+        width: 100%;
+        color: #3388ff;
+        font-size: 18px;
+        font-weight: 700;
+    }
+    .search span {
+      
+        line-height: 46px;
+        display: block;
+       
+        height: 46px;
+    }
+   .search  span:nth-child(2){
+        margin-right: 15px;
+
+    }
+    .search .xj {
+
+        margin-top: 8px;
+      line-height: 30px;
+        /* margin-right: 20px; */
+        height: 30px;
+        border-left: 1px solid #ccc;
+    }
+    .bd {
+        padding: 0 20px;
+        margin-top: 10px;
+        background-color: #fff;
+    }
+    .bd h2 {
+        font-weight: 400;
+        font-size: 18px;
+    }
+    .bd span {
+        display: inline-block;
+        color:red;
+        margin-bottom: 15px;
+    }  
+    .bd i {
+        font-style: normal;
+        
+    }
+    .bd span,i {
+        font-size: 12px;
+    }
+.news {
+    display: flex;
+    height:165px ;
+    border-top: 1px solid #ccc;
+}
+.news img {
+    /* float: left; */
+width: 30%;
+    height:136px;
+    margin-top: 15px;
+}
+.title {
+    font-size: 20px;
+    margin-left: 10px;
+    width: 70%;
+    height: 100%;
+  margin-top: 62px;
+}
+.title p {
+    font-size: 13px;
+    margin-top: 10px;
+    color: #ccc;
+}

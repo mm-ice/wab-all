@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+    }
+    #father{
+      position: relative;
+      width: 200px;
+      height: 200px;
+      background: red;
+      margin: 100px;
+    }
+    #son{
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      left: 30px;
+      top: 30px;
+      background: blue;
+    }
+  </style>
+</head>
+<body>
+  <div id="father">
+    <div id="son"></div>
+  </div>
+
+  <script src="js/jquery.js"></script>
+  <script>
+    console.log($('#father').offset())  // 相对整个页面的位置，跟父级元素没有关系
+    console.log($('#son').offset())
+    // $('#son').offset({   // 设置元素相对页面的位置
+    //   left: 0,
+    //   top: 50
+    // })
+
+    // console.log($('#son').position()) // 相对 定位的父级 的位置，如果没有定位，则相对整个页面的位置,只能获取不能设置
+
+  </script>
+</body>
+</html>

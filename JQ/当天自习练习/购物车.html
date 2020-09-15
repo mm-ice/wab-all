@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* li {
+            border: 1px solid #ccc;
+        } */
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            margin: 100px auto;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        ul li:nth-child(n+2) {
+            background: blue;
+        }
+
+        .qq {
+            background: pink
+        }
+
+        ul li:nth-child(n+2).ww {
+            background: yellow
+        }
+
+        li input {
+            cursor: pointer;
+        }
+
+        ul li.active {
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li class="qq"><input type="checkbox" class="all-check">全选&nbsp;&nbsp;&nbsp;&nbsp;
+            价格&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数量&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;小计&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </li>
+
+        <li class="list-li">
+            <input type="checkbox" class="list-check">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="price">￥18.80</span>&nbsp;&nbsp;&nbsp;
+            <input type="button" value="-" class="reduce">
+            <input type="text" value="1" style="width:20px;" class="num">
+            <input type="button" value="+" class="add">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="count">￥18.80</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="button" value="删除" class="del">
+        </li>
+        <li class="list-li">
+            <input type="checkbox" class="list-check">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="price">￥28.80</span>&nbsp;&nbsp;&nbsp;
+            <input type="button" value="-" class="reduce">
+            <input type="text" value="1" style="width:20px;" class="num">
+            <input type="button" value="+" class="add">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="count">￥28.80</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="button" value="删除" class="del">
+        </li>
+        <li class="list-li">
+            <input type="checkbox" class="list-check">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="price">￥8.80</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="button" value="-" class="reduce">
+            <input type="text" value="1" style="width:20px;" class="num">
+            <input type="button" value="+" class="add">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="count">￥8.80</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="button" value="删除" class="del">
+        </li>
+
+
+        <li class="ww">
+            <input type="checkbox" class="all-check">全选&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="button" value="选中的删除" class="check-remove">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="button" value="全部删除" class="all-remove">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            总数： <span class="all-count">0</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            总价： <span class="all-price">0</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </li>
+
+    </ul>
+
+
+    <script src="../js/jquery.js"></script>
+    <script>
+        $(".all-check").change(function () {
+            $(".list-check ,.all-check").prop("checked", $(this).prop("checked"))
+              
+            if($(this).prop("checked")){
+                $(".list-li").addClass("active ")
+            }else{
+                $(".list-li").removeClass("active ")
+            }
+          
+        })
+
+        $(".list-check").change(function () {
+            console.log($(".list-check:checked").length);
+            console.log($(".list-check").length);
+            if ($(".list-check:checked").length === $(".list-check").length) {
+                $(".all-check").prop("checked", true)
+            }
+            else {
+                $(".all-check").prop("checked", false)
+            }
+    
+    if ( $(this).prop("checked")){
+        $(this).parent().addClass("active")
+    }else{
+        $(this).parent().removeClass("active")
+    }
+ 
+        })
+
+        $(".add").click(function () {
+            var n = $(this).siblings(".num").val()
+            n++
+            $(this).siblings(".num").val(n)
+
+            var count = n * $(this).siblings('.price').text().substr(1)
+            $(this).siblings('.count').html('￥' + count.toFixed(2))
+
+            fn()
+        })
+
+        $(".reduce").click(function () {
+            var n = $(this).siblings(".num").val()
+
+            if (n <= 1) {
+                return false
+            }
+            n--
+            $(this).siblings(".num").val(n)
+
+            var count = n * $(this).siblings('.price').text().substr(1)
+            $(this).siblings('.count').html('￥' + count.toFixed(2))
+            fn()
+        })
+
+        $('.num').change(function () {
+            var n = $(this).val()
+            var count = n * $(this).siblings('.price').text().substr(1)
+            $(this).siblings('.count').html('￥' + count.toFixed(2))
+            fn()
+        })
+        function fn() {
+            var str = 0
+            var sky = 0
+            $(".num").each(function (i, e) {
+                str += parseInt($(e).val())
+            })
+            $(".all-count").text(str)
+            $(".count").each(function (i, e) {
+                sky += parseFloat($(e).html().substr(1))
+            })
+            $(".all-price").text("￥" + sky.toFixed(2))
+        }
+        fn()
+         $(".del").click(function(){
+             $(this).parent().remove()
+             fn()
+         })
+         $(".all-remove").click(function(){
+             $(".list-li").remove()
+             $(".all-check").prop("checked",false)
+           
+             fn()
+         })
+         $(".check-remove").click(function(){
+             $(".list-check:checked").parent().remove()
+             $(".all-check").prop("checked",false)
+             fn()
+         })
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div{
+      width: 200px;
+      height: 200px;
+      background: red;
+    }
+  </style>
+</head>
+<body>
+  <input type="button" value="in" id="in">
+  <input type="button" value="out" id="out">
+  <input type="button" value="toggle" id="toggle">
+  <input type="button" value="to" id="to">
+  <div></div>
+  <script src="js/jquery.js"></script>
+  <script>
+    $('#in').click(function(){
+      $('div').fadeIn()  // 淡入
+    })
+    $('#out').click(function(){
+      $('div').fadeOut()  // 淡出
+    })
+    $('#toggle').click(function(){
+      $('div').fadeToggle()  // 淡入淡出切换
+    })
+    $('#to').click(function(){
+      $('div').fadeTo(1000, .5) // 切换透明度到 0.5
+    })
+  </script>
+</body>
+</html>

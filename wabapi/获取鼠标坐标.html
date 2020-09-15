@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            margin-left: 50px;
+            background-color: teal;
+        }
+    </style>
+</head>
+<body>
+    <div>
+
+    </div>
+    <script>
+        var div = document.querySelector("div")
+    div.addEventListener("mousemove",function(e){
+  var x = e.pageX-div.offsetLeft
+  var y = e.pageY- div.offsetTop
+//   console.log("距离盒子左边的位置是"+x+ "距离盒子上边的位置是"+x);
+  div.innerHTML= "距离盒子左边的位置是"+ x + "   距离盒子上边的位置是"+y
+    })
+    </script>
+</body>
+</html>

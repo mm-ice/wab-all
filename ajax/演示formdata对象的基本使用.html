@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //  创建 FormDta实例
+      var fa = new FormData()
+    // 调用append函数 向fa中添加数据
+      fa.append('uname','zs') 
+      fa.append("upwd","123-34")
+    //    创建ajax请求来向服务器里添加fa里添加的数据
+       var xhr=  new XMLHttpRequest()
+       xhr.open("post","http://www.escook.cn:3006/api/formdata")
+       xhr.send(fa)
+       xhr.onreadystatechange= function(){
+           if(xhr.readyState===4&&xhr.status===200){
+            // 打印服务器返回来的数据
+               console.log(JSON.parse(xhr.responseText));
+           }
+       }
+    </script>
+</body>
+</html>

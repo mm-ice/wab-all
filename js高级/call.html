@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn (n,m){
+            console.log(n+m , this);
+        }
+        var obj= {
+            num : "zz"
+        }
+        var test = {
+            num: "cc"
+        }
+        //  call 括号后面第一个参数是谁调用这个函数  改变this的指向
+        fn.call( obj, 5  , 10)
+    </script>
+</body>
+</html>

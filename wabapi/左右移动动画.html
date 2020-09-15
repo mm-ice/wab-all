@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            position: absolute;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+
+        span {
+            position: absolute;
+            left: 0;
+            top: 50px;
+            display: block;
+            width: 150px;
+            height: 150px;
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="btn5">移动到500</button>
+    <button class="btn8">移动到800</button>
+    <span>夏雨荷</span>
+    <script>
+        var span = document.querySelector('span')
+        var btn5 = document.querySelector('.btn5')
+        var btn8 = document.querySelector('.btn8')
+
+        function c(obj, a,callback) {
+            clearInterval(obj.timer)
+            obj.timer = setInterval(function () {
+                sep = (a - obj.offsetLeft) / 10
+                sep = sep > 0 ? Math.ceil(sep) : Math.floor(sep)
+                console.log(sep);
+
+                if (obj.offsetLeft == a) {
+                    clearInterval(obj.timer)
+                    if (callback) {
+                        callback()
+                    }
+                    return
+                }
+                obj.style.left = obj.offsetLeft + sep + "px"
+            }, 50)
+        }
+        btn5.onclick = function () {
+            c(span, 500, function () {
+                span.style.backgroundColor = "red"
+            })
+        }
+        btn8.onclick = function () {
+            c(span, 800 , function(){
+                span.style.width="500px"
+            })
+        }
+    </script>
+</body>
+
+</html>

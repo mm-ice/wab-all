@@ -1,0 +1,23 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "12253311",
+      "name": "麦克风",
+      "font_class": "maikefeng",
+      "unicode": "e767",
+      "unicode_decimal": 59239
+    },
+    {
+      "icon_id": "13475541",
+      "name": "照相机",
+      "font_class": "zhaoxiangji",
+      "unicode": "e50d",
+      "unicode_decimal": 58637
+    }
+  ]
+}

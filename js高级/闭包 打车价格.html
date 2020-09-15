@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var car = (function () {
+            var qb = 13
+            var zj = 0
+            return {
+                jiage: function (num) {
+                    if (num > 3) {
+                       return zj = qb + (num - 3) * 5
+                    }
+                    else {
+                      return  zj = 13
+                    }
+                },
+                caoshi: function (falg) {
+                 return  falg? zj+10:zj
+
+                }
+                }
+            })()
+           console.log( car.jiage(5));
+          console.log(  car.caoshi(true));
+    </script>
+</body>
+
+</html>

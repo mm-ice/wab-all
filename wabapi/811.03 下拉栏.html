@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    ul{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+    .box>li{
+        float: left;
+        margin-left: 50px;
+    }
+    .box>li>ul{
+       display: none;
+    }
+</style>
+<body>
+    <ul class="box">
+        <li>
+            <a href="#"> 吃饭</a>
+            <ul>
+                <li>肉</li>
+                <li>鱼</li>
+                <li>蛋</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#"> 喝酒</a>
+            <ul>
+                <li> 啤机</li>
+                <li>白酒</li>
+                <li>红酒</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#"> 爱好</a>
+            <ul>
+                <li>睡觉</li>
+                <li>打游戏</li>
+                <li>运动</li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        var box= document.querySelector(".box")
+        console.log(box.children);
+        var lis = box.children
+        // 遍历box子元素 
+        for( var i = 0 ; i<lis.length ; i++){
+            lis[i].onmousemove= function(){
+            this.children[1].style.display= "block"
+            }
+            lis[i].onmouseout= function(){
+            this.children[1].style.display= "none"
+            }
+        }
+    </script>
+</body>
+</html>

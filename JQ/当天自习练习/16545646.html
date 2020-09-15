@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: brown;
+        }
+    
+    </style>
+</head>
+
+<body>
+    <button class="a">淡入</button>
+    <button class="b">淡出</button>
+    <button class="c">切换</button>
+    <div>
+
+    </div>
+
+
+    <script src="../js/jquery.js"></script>
+    <script>
+      $('.a').click(function(){
+          $('div').fadeIn(2000)
+      })
+      $('.b').click(function(){
+          $('div').fadeOut(2000 ,function(){
+              alert(123)
+          })
+      })
+      $('.c').click(function(){
+          $('div').stop().fadeToggle(2000 ,function(){
+              alert(123)
+          })
+      })
+
+        
+        
+    </script>
+</body>
+
+</html>

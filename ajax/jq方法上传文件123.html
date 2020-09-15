@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jq/jquery.js"></script>
+</head>
+
+<body>
+    <input type="file" id="file1" />
+    <button id="btnUpload">上传文件</button>
+
+    <br />
+    <img src="loading.gif" alt="" style="display: none;" id="loading" />
+    <img src="" alt="" id="imgs" width="800">
+
+    <script>
+        $(function () {
+            //  监控发起ajax请求让图片显示
+            $(document).ajaxStart(function () {
+                $("#loading").show()
+            })
+            $(document).ajaxStop(function () {
+                //  监控ajax请求完成来让图片隐藏
+                $("#loading").hide()
+            })
+            //  用jq方式来获取到表单上传的文件
+            $("#btnUpload").on("click", function () {
+                // $("#file1")[0]转化为dom方式来使用文件域自带的files获取列表属性
+                var files = $("#file1")[0].files
+                if (files.length <= 0) {
+                    return alert('请选择要上传的文件')
+                }
+                //  创建表单实例 把获取的的文件添加到实例里
+                var fd = new FormData()
+                fd.append("avater", files[0])
+                // 发起jq的ajax的请求 ， 上传文件
+                $.ajax({
+                    method: "post",
+                    url: "http://www.escook.cn:3006/api/upload/avatar",
+                    data: fd,
+                    // 不修改 Content-Type 属性，使用 FormData 默认的 Content-Type 值 
+                    processData: false,
+                    // 不对 FormData 中的数据进行 url 编码，而是将 FormData 数据原样发送到服务器 
+                    contentType: false,
+                    success: function (res) {
+                        console.log(res);
+                        if (res.status === 200) {
+                            // 上传成功
+                            // $('#imgs')[0].src = 'http://www.escook.cn:3006' + res.url
+                            //  jq设置固有属性来设置路径
+                            // $("#imgs").prop("src",'http://www.escook.cn:3006' + res.url )
+                            //  jq设置自定义属性也可以设置路径
+                            $("#imgs").attr("src",'http://www.escook.cn:3006' + res.url)
+                        } else {
+                            // 上传失败
+                            console.log('图片上传失败！' + res.message)
+                        }
+                    }
+                })
+            })
+        })
+    </script>
+
+</body>
+
+</html>

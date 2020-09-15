@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>11111</button>
+    
+
+    <script>
+        var btn = document.querySelector("button")
+        // btn.onclick =function(){
+        //     alert("1111")
+        // }
+        //  addEventListener 可以多次声明事件
+        // btn.addEventListener( "click" , function(){
+        //     alert("22222")
+        // })
+        // 参数1 事件类型 去点on 字符串类型
+        // 参数2 事件执行函数
+        // 事件三 是否捕获
+        // btn.addEventListener( "click" , function(){
+        //     alert("3333")
+        // })
+
+var  fn = function(){
+     alert(999)
+}
+var q = function(){
+    alert(22222)
+}
+// 声明函数在调用 函数变量不用加括号
+btn.addEventListener("click" , fn)
+btn.addEventListener("click" , q)
+    </script>
+</body>
+</html>

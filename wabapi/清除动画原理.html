@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+
+            width: 200px;
+            height: 200px;
+            background-color: chartreuse;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <button>点击开始</button>
+    <script>
+        var div = document.querySelector("div")
+        var btn = document.querySelector("button")
+        function a(obj, b) {
+            clearInterval(obj.timer)
+            obj.timer = setInterval(function () {
+                if (obj.offsetLeft >= b) {
+                    clearInterval(obj.timer)
+                    return
+                }
+                obj.style.left = obj.offsetLeft + 1 + "px"
+            }, 50)
+
+        }
+        btn.onclick = function(){
+            a(div,500)
+        }
+     
+    
+    </script>
+</body>
+
+</html>

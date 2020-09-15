@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            "0": 1,
+            "1": 2,
+            "length": 2
+        }
+        // 注意：如果是对象，那么属性需要写对应的索引
+        var arr2 = Array.from(obj)
+        console.log(arr2);
+
+        // let arrayLike = {
+        //     '0': 'a',
+        //     '1': 'b',
+        //     '2': 'c',
+        //     length: 3
+        // };
+        // //转成数组
+        // let arr2 = Array.from(arrayLike); // ['a', 'b', 'c']
+        // console.log(arr2);
+    </script>
+</body>
+
+</html>

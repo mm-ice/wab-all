@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let arr= [1,2,3,4,5,4,3,2,1]
+        // 用来生产数据结构 自动数组去重
+        // 返回值是一个类似数组的数据
+        //  let s= new Set(arr);
+        //     console.log(s);
+        // 利用数据拆解变成数组
+        // let test= [...arr]
+        // console.log(test);
+        //==========================================================//
+        let s = new Set();
+        var ste = s.add(1).add(40).add(13).add(30)
+        console.log(ste);
+        //  可以跟数组一样可以遍历
+        ste.forEach(value=>console.log(value))
+        // 删除跟的参数是你要删除的对象 返回的是布尔值
+        console.log(ste.delete(40));
+        console.log(ste);
+        //     has 查看该值是否为set里的成员 返回布尔值
+        console.log(ste.has(40));
+        // 清除所有 没有返回值  
+        ste.clear()
+        console.log(ste);
+
+
+
+
+    </script>
+</body>
+
+</html>

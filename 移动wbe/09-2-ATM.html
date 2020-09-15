@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var a = 100;
+        do {
+            var b = prompt( '请输入您要的操作：\n 1.存钱\n 2.取钱\n 3.显示余额\n 4.退出') -0;
+            if (b == 1) {
+                var c = prompt('请输入存钱数额') - 0;
+                var a = a + c;
+                alert('存钱成功！您的余额为：' + a + '元');
+            } else if (b == 2) {
+                var c = prompt('请输入取款金额') - 0;
+                if (a < c) {
+                    alert('余额不足');
+                } else {
+                    var a = a - c;
+                    alert('取款成功！您的余额为：' + a + '元');
+                }
+            } else if (b == 3) {
+                alert('您的余额为：' + a + '元');
+            }
+        } while (b !== 4)
+        alert('退出成功！请及时取走银行卡');
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

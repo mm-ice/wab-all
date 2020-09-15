@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      button{
+          display: block;
+      }
+        img{
+            width: 400px;
+            }
+         
+    </style>
+</head>
+<body>
+    <button id="ldh">刘德华</button>
+    <button id="zxy">张学友</button>
+    <img src="img/ldh.jpg" alt="">
+    <script>
+        var ldh=document.querySelector("#ldh")
+        var zxy=document.querySelector("#zxy")
+        var img=document.querySelector("img")
+        ldh.onclick = function(){
+            img.src="img/ldh.jpg"
+        }
+        zxy.onclick = function(){
+            img.src="img/zxy.jpg"
+        }
+    </script>
+</body>
+</html>

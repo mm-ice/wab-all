@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        th {
+            display: inline-block;
+            border: 1px solid #333;
+            background-color: blueviolet;
+        }
+
+        th:nth-child(2) {
+            width: 200px;
+        }
+
+        tr {
+            width: 200px;
+            background-color: #acc;
+        }
+
+        tr:nth-child(1) {
+            margin: 0;
+            padding: 0;
+            width: 20px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        请输入姓名：<input type="text" class="name"></br>
+        请输入邮箱： <input type="text" class="eml"><br>
+        <button>添加</button>
+    </div>
+    <table>
+        <thead>
+            <th>姓名</th>
+            <th>邮箱</th>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</body>
+<script>
+    var btn = document.querySelector("button")
+    btn.onclick = function () {
+        flag = true
+        var uname = document.querySelector(".name")
+        var eml = document.querySelector(".eml")
+
+        if (uname.value == "" || eml.value == "") {
+            alert("请输入全部内容")
+            return
+        }
+        var tr = document.createElement("tr");
+        var tb = document.querySelector("tbody");
+        tb.appendChild(tr);
+        var td1 = document.createElement("td")
+        td1.innerHTML = uname.value;
+        var td2 = document.createElement("td")
+        td2.innerHTML = eml.value;
+        tr.appendChild(td1)
+        tr.appendChild(td2)
+
+
+    }
+
+
+</script>
+
+</html>

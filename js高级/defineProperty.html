@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var obj = {
+            name : "mz",
+            age : 22
+        }
+        
+        Object.defineProperty( obj,"num",{
+            value : "ls"
+        //     value:修改或新增的属性的值,
+		// writable:true/false,//如果值为false 不允许修改这个属性值
+		// enumerable: false,//enumerable 如果值为false 则不允许遍历
+        // configurable: false  //configurable 如果为false 则不允许删除这个属性 属性是否可以被删除或是否可以再次修改特性 
+        })
+        console.log(obj);
+    </script>
+</body>
+</html>

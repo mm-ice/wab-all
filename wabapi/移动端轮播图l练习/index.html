@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      height: 2000px;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    #box {
+      position: relative;
+      width: 100%;
+      height: 150px;
+      overflow: hidden;
+    }
+
+    #box ul {
+      /*  设置ul的宽度为父盒子的五倍 让别往左移动一个父盒子的距离 隐藏最前面的那个盒子 */
+      position: absolute;
+      width: 500%;
+      height: 150px;
+      left: -100%;
+
+    }
+
+    #box ul li {
+      float: left;
+      width: 20%;
+      height: 150px;
+    }
+
+    #box ul li img {
+      width: 100%;
+      height: 150px;
+    }
+
+    #box ol {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+    }
+
+    #box ol li {
+      float: left;
+      width: 5px;
+      height: 5px;
+      margin: 0 3px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all .1s;
+    }
+
+    #go-back {
+      position: fixed;
+      right: 10px;
+      bottom: 10px;
+      width: 20px;
+      height: 20px;
+      border: 1px solid red;
+      border-radius: 50%;
+      line-height: 15px;
+      text-align: center;
+      color: red;
+      display: none;
+    }
+    #go-back{
+      position: fixed;
+      right: 20;
+      bottom: 20;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+    <ul>
+      <!-- -1 -->
+      <li><img src="./images/focus3.jpg" alt=""></li>
+      <!-- 0 -->
+      <li><img src="./images/focus1.jpg" alt=""></li>
+      <!-- 1 -->
+      <li><img src="./images/focus2.jpg" alt=""></li>
+      <!-- 2 -->
+      <li><img src="./images/focus3.jpg" alt=""></li>
+      <!-- 3 -->
+      <li><img src="./images/focus1.jpg" alt=""></li>
+    </ul>
+    <ol>
+      <li class="active"></li>
+      <li></li>
+      <li></li>
+    </ol>
+  </div>
+  <div id="go-back">↑</div>
+
+  <script>
+    var box = document.querySelector("#box")
+    var ul = document.querySelector("ul")
+    var ol = document.querySelector("ol")
+    var gb=document.querySelector("#go-back")
+    //  求出父盒子的宽
+    var boxw = box.offsetWidth
+    var index = 0
+
+    var timer = setInterval(function () {
+      //   定时器每执行一次 index累计加一次
+      index++
+      //  a  是求的ul移动的位置 
+      //  是盒子的宽度*定时器执行的次数来确定盒子移动的距离
+      var a = - boxw * index
+      //   给盒子添加移动过度效果
+      ul.style.transition = "all   .3s"
+      //  让盒子来移动
+      ul.style.transform = "translateX(" + a + "px)"
+
+    }, 2000)
+    // 给图片添加过度监视事件  监视过度完成在执行下面的代码 来让图片到最后一张来实现无缝转跳
+    ul.addEventListener("transitionend", function () {
+      //   判断盒子到最后3张了 让图片转跳到第0张
+      if (index >= 3) {
+        //  让图片转跳到第0张
+        index = 0
+        //  取消图片转跳时的过度事件
+        ul.style.transition = "none"
+        //  求出盒子的移动的距离 index等于0
+        var translateX = -index * boxw
+        //  转跳完要移动的距离
+        ul.style.transform = "translateX(" + translateX + "px)"
+
+        //  判断图片位置在-1号图片上 转跳到2号图片上 
+      } else if (index < 0) {
+        index = 2
+        ul.style.transition = "none"
+        var translateX = -index * boxw
+        ul.style.transform = "translateX(" + translateX + "px)"
+      }
+      //  利用classList里的属性来删除类名
+      ol.querySelector(".active").classList.remove("active")
+      //  给ol里的li来添加相对应于图片的索引 来给对应的索引来添加类名
+      ol.children[index].classList.add("active")
+    })
+    var startX = 0
+    var moveX = 0
+    var flag =false
+    //   给图片注册手指点击事件touchstart
+    ul.addEventListener("touchstart", function (e) {
+      //   求出手指到页面左侧的距离
+      startX = e.targetTouches[0].pageX
+      //  手指点击时 取消定时器  清除滚动效果
+      clearInterval(timer)
+    })
+    //   给图片注册手机在屏幕上移动事件
+    ul.addEventListener("touchmove", function (e) {
+      //   用手指点击时的距离屏幕左侧的距离减去 手指到页面左侧的距离 
+      //  得到手指动态的滑动的距离
+      moveX = e.targetTouches[0].pageX - startX
+      //  鼠标滑动后ul移动的最新位置= 在之前的位置基础上 加上鼠标滑动的距离
+      var translateX = - index * boxw + moveX
+      ul.style.transition = "none"
+      ul.style.transform = "translatex(" + translateX + "px)"
+              flag= true
+    })
+    //   给ul 注册手指离开事件
+    ul.addEventListener("touchend", function () {
+      //  判断滑动的距离有没有大于50 来判断图片是否切换
+if(flag){
+  if (Math.abs(moveX) > 50) {
+        // 正值是下一张 负值是上一张
+        if (moveX > 0) {
+          // / 上一张
+          index--
+        } else {
+          //  下一张
+          index++
+        }
+        var translateX = - index * boxw
+        ul.style.transition = "all .3s"
+        ul.style.transform = "translateX(" + translateX + "px)"
+      } else {
+        //   回弹
+        var translateX = - index * boxw
+        ul.style.transition = "all .1s"
+        ul.style.transform = "translateX(" + translateX + "px)"
+      }
+             flag=false
+}
+clearInterval(timer)
+timer = setInterval(function () {
+      //   定时器每执行一次 index累计加一次
+      index++
+      //  a  是求的ul移动的位置 
+      //  是盒子的宽度*定时器执行的次数来确定盒子移动的距离
+      var a = - boxw * index
+      //   给盒子添加移动过度效果
+      ul.style.transition = "all   .3s"
+      //  让盒子来移动
+      ul.style.transform = "translateX(" + a + "px)"
+
+    }, 2000)
+    })
+ window.addEventListener("scroll" ,function(){
+   if(window.pageYOffset>600){
+    gb.style.display="block"
+   }else{
+    gb.style.display="none"
+   }
+   gb.addEventListener("click",function(){
+     window.scroll(0,0)
+   })
+ })
+
+  </script>
+
+</body>
+
+</html>

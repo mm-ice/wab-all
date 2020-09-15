@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn ( m, n, v ){
+            console.log(this);
+        console.log( m, n, v );
+        }
+        var obj = {
+            uname : "zx"
+        }
+         fn.call(obj , 9 ,7 ,5)
+         fn.apply(obj ,[7,6,3,] )
+        //   可以改变this指向 但不会直接调用
+         fn.bind(obj , 7,6,3,)()
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+          padding: 0;
+          margin: 0;
+          list-style: none;
+        }
+        li{
+          float: left;
+          width: 70px;
+        }
+        .list{
+          display: none;
+        }
+      </style>
+</head>
+<body>
+    
+
+  
+      <ul id="box">
+        <li>
+          <input type="button" value="按钮">
+          <div class="list">
+            <p>123</p>
+            <p>123</p>
+            <p>123</p>
+          </div>
+        </li>
+        <li>
+          <input type="button" value="按钮">
+          <div class="list">
+            <p>123</p>
+            <p>123</p>
+            <p>123</p>
+          </div>
+        </li>
+        <li>
+          <input type="button" value="按钮">
+          <div class="list">
+            <p>123</p>
+            <p>123</p>
+            <p>123</p>
+          </div>
+        </li>
+      </ul>
+
+<script src="js/jquery.js"></script>
+ <script>
+    //   利用选择器 选出input
+     $("ul li  input").mousemove(function(){
+        //   这里的 $(this) 代表的是 JQ 对象  这里指的是input 
+        // 利用input找出父元素 在选出需要的子元素 设置样式
+         $(this).parent().children(".list").show()
+     })
+     $("ul li  input").mouseout(function(){
+         $(this).parent().children(".list").hide()
+     })
+ </script>
+
+</body>
+</html>

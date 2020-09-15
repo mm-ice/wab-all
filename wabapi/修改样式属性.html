@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 400px;
+            background-color: red;
+            height: 400px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div></div>
+    <script>
+        var div = document.querySelector("div")
+        flag = true
+        div.onclick = function () {
+
+            if (flag == true) {
+                this.style.backgroundColor = "blue"
+                div.style.width = "600px"
+                flag = false
+            } else {
+                this.style.backgroundColor = "red"
+                div.style.width = "400px"
+                flag = true
+            }
+
+        }
+    </script>
+</body>
+
+</html>

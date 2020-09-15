@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>13331</li>
+        <li>13331</li>
+        <li>13331</li>
+        <li>13331</li>
+    </ul>
+    <script src="js/jquery.js"></script>
+    <script>
+
+             $("li").click(function(){
+              
+                 $(this).css("background","red")
+                 $(this).siblings('li').css('background', '')   
+             })
+   
+    </script>
+</body>
+</html>

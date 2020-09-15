@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var num1=0
+        function zhisu(num){
+            for(var i=1; i<=num;i++){
+                if(num % i == 0){
+                    num1++
+                }
+            }
+            if(num1<=2){
+              return  alert("这是个质数")
+            }
+            alert("这不是个质数")
+        }
+        zhisu(  num=prompt('请输入要判断数值')  )
+    </script>
+</body>
+</html>

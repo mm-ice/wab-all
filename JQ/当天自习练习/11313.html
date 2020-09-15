@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn {
+
+            background-color: darkgreen;
+
+        }
+
+     li {
+            margin-top: 100px;
+            border: orangered 1px solid;
+            width: 200px;
+            height: 200px;
+            background-color: darkgreen;
+            display: none;
+        }
+
+        .str {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="btn">11111</button>
+    <button>222</button>
+    <button>3333</button>
+    
+      <ul>
+          <li>12111</li>
+          <li>222222</li>
+          <li>333333</li>
+      </ul>
+    <script src="../js/jquery.js"></script>
+    <script>
+        $('button').click(function () {
+            $(this).addClass('btn')
+            $(this).siblings().removeClass("btn")
+
+            var index = $(this).index()
+            $(" ul li").eq(index).show()
+
+            console.log($(' li').eq(index).siblings());
+            $(' ul li').eq(index).siblings().hide()
+        })
+
+    //    $ ('button').click(function(){
+    //        $(this).addClass("but")
+    //        $(this).siblings().removeClass("but")
+    //        var index= $(this).index()
+    //        $('div').eq(index).addClass("str").siblings().removeClass("str")
+
+
+    //    })
+    </script>
+</body>
+
+</html>

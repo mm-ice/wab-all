@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            float: left;
+            margin-left: 30px;
+            font-size: 30px;
+        }
+
+        .box {
+          
+          
+            background-color: cadetblue;
+            color: chocolate;
+
+        }
+
+        .box1,
+        .box2,
+        .box3 {
+         
+            background-color: coral;
+            color: cornsilk;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>距离光棍节还有</h2>
+    <div class="box"></div>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+
+
+
+    <script>
+        var box = document.querySelector(".box")
+        var box1 = document.querySelector(".box1")
+        var box2 = document.querySelector(".box2")
+        var box3 = document.querySelector(".box3")
+
+        fn()
+        setInterval(fn, 1000)
+        function fn() {
+            var inputTime = +new Date("2020-11-11 00:00:00")
+            var nowTime = +new Date()
+
+            var timer = (inputTime - nowTime) / 1000
+            var day = parseInt(timer / 60 / 60 / 24)
+            day = day < 10 ? "0" + day : day
+            var h = parseInt(timer / 60 / 60 % 24)
+            h = h < 10 ? "0" + h : h
+            var m = parseInt(timer / 60 % 60)
+            m = m < 10 ? "0" + m : m
+            var s = parseInt(timer % 60)
+            s = s < 10 ? "0" + s : s
+
+            return box.innerHTML = day + "天",
+                box1.innerHTML = h + "小时",
+                box2.innerHTML = m + " 分钟",
+                box3.innerHTML = s + "秒"
+        }
+
+    </script>
+</body>
+
+</html>

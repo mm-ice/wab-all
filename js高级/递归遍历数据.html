@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [
+            {
+                id: 1,
+                name: "wx",
+                arr: [{
+                    id: 22,
+                    name: "ws"
+                }, {
+                    id: 11,
+                    name: "ws"
+                }],
+            },
+            {
+                id: 33,
+                name: "zz"
+            }
+        ];
+
+
+        function obj(str, id) {
+            var test = {}
+            str.forEach(function (item) {
+                if (item.id == id) {
+                    test = item
+                } else if (item.arr && item.arr.length > 0) {
+                    test = obj(item.arr, id)
+                }
+            })
+            return test
+        }
+
+        console.log(obj(arr, 11));
+
+    </script>
+</body>
+
+</html>

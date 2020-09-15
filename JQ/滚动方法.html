@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100%;
+            height: 500px;
+            background-color: teal;
+            margin-top: 800px;
+        }
+
+        span {
+            position: fixed;
+            top: 500px;
+            background-color: tomato;
+        }
+        p{
+            width: 100%;
+            height: 1000px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+        <div>
+
+        </div>
+        <span> 顶部</span>
+    </p>
+    <script src="js/jquery.js"></script>
+    <script>
+        var num = $('div').offset().top
+        console.log();
+        $(window).scroll(function () {
+            console.log($(window).scrollTop());
+            if ($(window).scrollTop() > num) {
+                $("span").fadeIn()
+            }else{
+                $("span").fadeOut()
+            }
+        })
+        $("span").click(function(){
+            $(document).scrollTop(0)
+        })
+    </script>
+</body>
+
+</html>

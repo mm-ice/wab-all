@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 50px;
+            border: steelblue 1px solid;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text"> <button>发送</button>
+    <script>
+        var input = document.querySelector("input")
+        var btn = document.querySelector('button')
+        flag = 10
+
+        btn.addEventListener("click", function () {
+            btn.disabled = true
+            var timer = setInterval(function () {
+                if (flag == 0) {
+                    btn.disabled = false
+                    clearInterval(timer)
+                    btn.innerHTML = "发送"
+                } else {
+                    btn.innerHTML = "请在 " + flag + "秒之内再次点击"
+                    flag--
+                }
+            }, 1000)
+        })
+    </script>
+</body>
+
+</html>

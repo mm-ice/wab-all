@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+         function Str ( name , age){
+            //   在构造函数里面的是实例成员
+             this.name= name
+             this.age= age
+             this.sing= function(){
+                 console.log( this.name+"唱歌");
+             }
+         }
+        //   这是静态成员 
+        //  静态成员只能通过构造函数来调用
+         Str .sex = "男"
+         var obj = new Str( "木木", 20)
+        obj.sing()
+     console.log(Str.sex);
+    </script>
+</body>
+</html>

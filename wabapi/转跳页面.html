@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //  navigator对象包含了 有关浏览器的信息。
+    //  userAgent 是可以返回客户机发送服务器的头部值（ 就是判断是移动端还是pc 端）
+        var str = navigator.userAgent
+
+        if (str.includes("iphone")){
+            location.href="https://m.jd.com"
+        }else{
+            location.href="https://jd.com"
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // document.addEventListener("keyup",function(){
+        //     console.log("我弹起了");
+        // })
+        // document.addEventListener("keydown",function(){
+        //     console.log("我摁下了");
+        // })
+        // // down和press一起出现先触发press press功能键不能触发
+        // document.addEventListener("keypress",function(){
+        //     console.log("我按下press了");
+        // })
+        // keypress可以区分大小写
+        // keyCode 查询ASCII值
+
+        document.addEventListener("keypress",function(e){
+                         if(e.keyCode===13){
+                             alert("您按的回车键")
+                         }else{
+                             alert("摁的不是回车")
+                         }
+        })
+    </script>
+</body>
+</html>

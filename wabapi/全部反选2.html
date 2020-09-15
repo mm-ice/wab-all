@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="checkbox" id="all">全选
+    <div class="box">
+        <input type="checkbox"> 蔬菜 <br />
+        <input type="checkbox"> 蔬菜 <br />
+        <input type="checkbox"> 蔬菜 <br />
+        <input type="checkbox"> 蔬菜 <br />
+        <input type="checkbox"> 蔬菜 <br />
+        <input type="checkbox"> 蔬菜 <br />
+        <input type="checkbox"> 蔬菜 <br />
+        <input type="checkbox"> 蔬菜 <br />
+</body>
+<script>
+    var all = document.querySelector("#all")
+    var input = document.querySelector(".box").querySelectorAll("input")
+    all.onclick = function () {
+        for (var i = 0; i < input.length; i++) {
+            input[i].checked = this.checked
+        }
+    }
+    for (var i = 0; i < input.length; i++) {
+        input[i].onclick = function () {
+            var flag = true
+            for (var j = 0; j < input.length; j++) {
+                if (!input[j].checked) {
+                    flag = false
+                }
+                all.checked = flag
+            }
+        }
+
+    }
+</script>
+
+</html>

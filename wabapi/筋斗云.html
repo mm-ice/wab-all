@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #box {
+      position: relative;
+    }
+
+    #cloud {
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: url('img/cloud.gif') no-repeat;
+      width: 83px;
+      height: 42px;
+    }
+
+    ul {
+      width: 500px;
+      height: 42px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    ul li {
+      list-style: none;
+      float: left;
+      width: 83px;
+      height: 42px;
+      text-align: center;
+      line-height: 42px;
+      z-index: 99;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+    <div id="cloud"></div>
+    <ul>
+      <li>首页</li>
+      <li>详情</li>
+      <li>联系</li>
+      <li>东西</li>
+      <li>南北</li>
+    </ul>
+  </div>
+
+  <script>
+    var cloud = document.getElementById('cloud')
+    var ulList = document.querySelector('ul')
+
+    function animate(el, target, fn) {
+      clearInterval(el.flag)
+      el.flag = setInterval(function () {
+        var step = (target - el.offsetLeft) / 10
+        step = step > 0 ? Math.ceil(step) : Math.floor(step)
+        if (el.offsetLeft == target) {
+          clearInterval(el.flag)
+          if (fn) {
+            fn()
+          }
+        }
+        el.style.left = el.offsetLeft + step + 'px'
+      }, 30)
+    }
+
+    var flag =0
+    for(var i =0 ; i<ulList.children.length;  i++){
+        ulList.children[i].onclick= function(){
+            flag = this.offsetLeft
+        }
+        ulList.children[i].addEventListener("mouseover" ,function(){
+            animate(cloud,this.offsetLeft)
+        })
+        ulList.children[i].addEventListener( "mouseout",function(){
+            animate(cloud,flag)
+        })
+        
+    }
+  </script>
+</body>
+
+</html>

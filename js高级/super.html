@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button>点击</button>
+    <script>
+        var that
+
+        class Father {
+            constructor(x, y) {
+                that= this
+                this.x = x
+                this.y = y
+            }
+           
+            add(){
+                console.log( this.x+this.y);
+            }
+        }
+        class Son extends Father{
+            constructor(x, y) {
+            
+                super()
+                that=this
+                this.x = x
+                this.y = y
+                this.btn= document.querySelector("button")
+                this.btn.onclick=this.test
+                
+            }
+            test(){
+        //     this被谁调用就指向谁
+        //  这里被but调用 所以要吧s的this赋值给that 之后就能正常输出了
+        
+                console.log( that.x-that.y);
+            }
+        }
+        var s = new Son(10,20)
+     
+    
+    </script>
+</body>
+
+</html>

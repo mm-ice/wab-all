@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="按钮">
+    <input type="button" value="按钮">
+    <input type="button" value="按钮">
+
+    <script>
+        //  循环每次都会产生一个作用域 而let声明的变量有块级作用域 所以每次产生的i变量都没有关系
+        var button = document.querySelectorAll("input")
+        for (let i = 0; i < 3; i++) {
+            button[i].onclick = function () {
+                console.log(i);
+            }
+        }
+    </script>
+</body>
+
+</html>

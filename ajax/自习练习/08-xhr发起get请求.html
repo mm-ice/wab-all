@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1. 创建 XHR 对象
+        var xhr = new XMLHttpRequest()
+        // 2. 调用 open 函数
+        //  可以以查询字符串的方式来发起带参数的请求
+        xhr.open('GET', 'http://www.escook.cn:3006/api/getbooks?id=1')
+        // 3. 调用 send 函数
+        xhr.send()
+        // 4. 监听 onreadystatechange 事件
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // 获取服务器响应的数据
+                console.log(xhr.responseText)
+                var data = JSON.parse(xhr.responseText)
+                console.log(data);
+                var data2 = JSON.stringify(data)
+                console.log(data2);
+            }
+        }
+    </script>
+</body>
+
+</html>

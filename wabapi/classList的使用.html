@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flag{
+  background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <button>开关灯</button>
+    <script>
+        var  btn= document.querySelector("button")
+
+        //  可以直接添加类名  是在后面追加 不会覆盖
+        btn.classList.add("one")  
+        //  可以直接删除类名
+        btn.classList.remove("tow")
+        btn.addEventListener('click', function() {
+            console.log(123);
+            document.body.classList.toggle('flag');
+        })
+            //  可以切换类名 有的话可以直接覆盖
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a =100
+        do {
+            var t = prompt("请输入您要的操作：\n 1.存钱 \n 2.取钱 \n3.显示余额 \n4.退出")
+            if(t==1){
+                var c = prompt("请输入存入金额")-0
+                a = a + c
+                alert("您现在的余额是"+a) 
+            }
+            else if(t==2) {
+               var c = prompt("请输入取出金额")-0 
+
+               if (c>a){
+                   alert("余额不足")
+               }else if ( a>c){
+                a=a-c
+               alert("您的余额是"+a)
+               }
+
+               else if(a>c){
+               var   a=a-c
+                   alert("您现在的余额是"+a) 
+               }
+            }else if(t==3){
+                alert("你的余额是"+a)
+              }
+            }
+            while (t!=4) {
+                alert("正在退出，请取走卡片")
+            }
+    </script>
+</body>
+</html>

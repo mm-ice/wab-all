@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .box {
+            position: relative;
+            width: 520px;
+            height: 280px;
+            margin: 100px auto;
+            background: rgba(0, 0, 0, .3);
+        }
+
+        .l {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            margin-top: -15px;
+            width: 30px;
+            height: 30px;
+            border-radius: 0 15px 15px 0;
+            background: rgba(0, 0, 0, .3);
+            text-decoration: none;
+            text-align: center;
+            line-height: 30px;
+            color: #fff;
+        }
+
+        .r {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            margin-top: -15px;
+            width: 30px;
+            height: 30px;
+            border-radius: 15px 0 0 15px;
+            background: rgba(0, 0, 0, .3);
+            text-decoration: none;
+            text-align: center;
+            line-height: 30px;
+            color: #fff;
+        }
+
+        ul {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            margin-left: -35px;
+            background-color: #fff;
+            background: rgba(225, 255, 255, .3);
+
+            height: 13px;
+            width: 70px;
+            border: right 7px;
+        }
+        ul>li {
+            float: left;
+            width: 8px;
+            height: 8px;
+           border-radius: 4px;
+            margin: 3px;
+            background-color: #fff;
+        }
+        ul .c{
+            background-color: #ff5220;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img src="tb.jpg" alt="">
+        <a href="#" class="l"> &lt;</a>
+        <a href="#" class="r"> &gt;</a>
+        <ul>
+            <li class="c"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+
+        }
+
+        .box {
+            margin: 200px auto;
+            width: 180px;
+            height: 30px;
+            border: 1px solid red;
+            padding-left: -1px;
+            line-height: 30px;
+            text-align: center;
+
+        }
+
+        .miaosa {
+            position: relative;
+            float: left;
+            width: 100px;
+            height: 30px;
+            background-color: red;
+            color: #fff;
+
+        }
+
+        .miaosa i {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 0;
+            height: 0;
+            border-color: transparent white transparent transparent;
+            border-style: solid;
+            border-width: 30px 15px 0 0;
+
+        }
+
+        /* p {
+            width: 0;
+            height: 0;
+            border-color: red pink transparent transparent;
+            border-style: solid;
+            border-width: 150px 100px 0 0;
+
+        } */
+        .xianjia {
+            font-size: 12px;
+            color: grey;
+            text-decoration: line-through;
+            line-height: 30px;
+        }
+
+
+
+        .box2 {
+            margin: 0 auto;
+            width: 180px;
+            height: 30px;
+            border: 1px solid red;
+        }
+
+        /* /* .miaosa1 {
+    /* float: left;
+    width: 100px;
+    height: 30px;
+    background-color: red; */
+
+        .miaosa1{
+                position: relative;
+                float: left;
+                width: 90px;
+                height: 100%;
+                background-color:red;
+                text-align: center;
+                color: #fff;
+                font-weight: 700;
+                margin-right: 8px;
+
+            }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <span class="miaosa">
+            ¥1650
+            <i></i>
+        </span>
+        <span class="xianjia">¥888</span>
+    </div>
+
+
+
+
+    <div class="box2">
+        <span class="miaosa1">
+            ¥1650
+        </span>
+        <span class=" xianjia1">¥888</span>
+    </div>
+    <p></p>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr=[ 'a','b','c','e']
+        // 会遍历这个数组 需要写要寻找的值来对比 找不到会返回为空
+        // var test= arr.find(item => item === "f")
+        // console.log(test);
+        // findIndex返回索引
+         var test= arr.findIndex(function(item){
+             return item==="c"
+         })
+        console.log(test);
+    </script>
+</body>
+</html>

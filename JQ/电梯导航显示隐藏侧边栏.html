@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="/wabapi/轮播图/animate.js"></script>
+  <style>
+    div{
+      width: 1000px;
+      margin: 50px auto;
+      margin-top: 50px;
+    }
+    #header{
+      height: 900px;
+    }
+    .list{
+      height: 600px;
+    }
+    .first{
+      background: rebeccapurple;
+    }
+    .next{
+      background: greenyellow;
+    }
+    .last{
+      background: pink;
+    }
+    #left{
+      position: fixed;
+      top: 45%;
+      left: 0;
+      padding: 0;
+      margin: 0;
+      display: none;
+    }
+    #left li{
+      width: 50px;
+      height: 35px;
+      list-style: none;
+      line-height: 35px;
+      border: 1px solid #ccc;
+      text-align: center;
+      cursor: pointer;
+    }
+    #left .active{
+      background: brown;
+    }
+  </style>
+</head>
+<body>
+  <!-- <div id="header"></div> -->
+  <div class="list first"></div>
+  <div class="list next"></div>
+  <div class="list last"></div>
+  <ul id="left">
+    <li class="active">first</li>
+    <li>next</li>
+    <li>last</li>
+  </ul>
+
+  <script src="js/jquery.js"></script>
+  <script>
+
+var flag = true
+     var num = $(".first").offset().top
+  
+    function fn (){
+      $(window).scroll(function(){
+         if( $(window).scrollTop()>=num){
+             $("#left").fadeIn()
+         }else{
+            $("#left").fadeOut()
+         }
+     })
+    }
+    fn ()
+    $(window).scroll(function(i,e){
+      fn()
+    if( flag){
+      $('.list').each(function(i, el){
+        if( $(window).scrollTop() >= $(el).offset().top )  {
+          $('#left li').eq(i).addClass('active').siblings().removeClass('active')
+        }
+
+      })
+    }
+    })
+  
+
+     $("#left li").click(function(){
+         var index = $(this).index()
+         var num = $(".list").eq(index).offset().top
+         $("html") .stop().animate({
+            scrollTop:num
+         }, function(){
+           flag= true         })
+         $(this).addClass("active").siblings().removeClass("active")
+     })
+
+  </script>
+</body>
+</html>

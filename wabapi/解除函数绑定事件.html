@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>123</button>
+  
+    <script>
+        var btn= document.querySelector("button")
+        //  btns.onclick= function(){
+        //     //  传统方式解除事件
+        //      btns.onclick= null
+        //  }
+        
+         btn.addEventListener("click",fn) 
+     function fn (){
+          console.log( 123);
+          btn.removeEventListener("click", fn)
+         }
+    
+        
+    </script>
+</body>
+</html>

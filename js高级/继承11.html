@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Father(uname, age) {
+            this.uname = uname
+            this.age = age
+        }
+        //  利用call 来改变父函数里的this指向 来达到子函数继承父函数的目的
+        function Son ( uname , age ){
+            Father.call(this, uname , age)
+        }
+         var obj = new Son( " 莉莉安" , 18)
+         console.log( obj.uname , obj.age);
+    </script>
+</body>
+
+</html>

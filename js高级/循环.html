@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [3, 5, 7, 9, 11, 15, 10]
+        //  遍历
+        //  arr.forEach(function( value, index, array ){
+        //      console.log( "每个值"+value );
+        //      console.log( "索引"+index );
+        //      console.log( "本身"+array );
+        //  })
+        //  筛选 filter
+    //  var newArr= arr.filter(function (value, index, array) {
+    //     //   可以直接回个数组  声明个新变量数组接收
+    //         return value > 8
+    //     })
+    //     console.log(newArr);
+
+//  some 会找到符合条件的返回布尔值 找到符合条件的会立即停止执行
+    var falg = arr.some(function (value, index, array) {
+            return value > 5
+        })
+        console.log(falg);
+    </script>
+</body>
+
+</html>

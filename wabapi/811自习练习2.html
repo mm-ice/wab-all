@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    ul li {
+        width: 300px;
+        border: tomato 1px solid;
+        background-color: bisque;
+
+    }
+
+    button {
+        background-color: burlywood;
+
+    }
+</style>
+
+<body>
+    <textarea name="" id=" " cols="30" rows="10"></textarea>
+    <button>发布</button>
+    <ul></ul>
+    <script>
+        var text = document.querySelector("textarea")
+        var btn = document.querySelector("button")
+        var ul = document.querySelector("ul")
+        btn.addEventListener("click", function () {
+            if (text.value == "") {
+                alert("您没输入内容")
+                //    return false
+            } else {
+                var li = document.createElement("li")
+                li.innerHTML = text.value + "<a>删除</a>"
+                ul.appendChild(li)
+                text.value = ""
+            }
+            var as = document.querySelectorAll("a")
+        console.log(as);
+        for (var i = 0; i < as.length; i++) {
+            as[i].addEventListener("click", function (e) {
+                e.preventDefault()
+                ul.removeChild(this.parentNode)
+            })
+        }
+        })
+       
+    </script>
+</body>
+
+</html>

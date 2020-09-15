@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //  var a =123
+        //  console.log(b);
+        //  {
+        //      console.log(a);
+        //      let b=123
+        //  }
+        // let 不能先先使用在声明 没有变量提升
+        // let 有块级作用域 和暂时性死区
+        var a= 123
+        {
+            // 暂时性死区
+            console.log(a);
+            let a= 456
+            
+        }
+    </script>
+</body>
+</html>

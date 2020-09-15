@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="test">
+        <div class="box"></div>
+        <span></span>
+        <div></div>
+    </div>
+    <script>
+        var box= document.querySelector(".box")
+        // box.parentNode   box获取父级节点 test
+   var test = document.querySelector(".test")
+//    childNodes获取所有元素节点
+   console.log( test.childNodes);
+//  无兼容问题 可以利用数组来获取想要的节点
+   console.log(test.children);获取所有子元素 
+   console.log(test.firstChild); 第一个
+   console.log(test.lastChild); 最后一个
+
+//  console.log( test.firstElementChild); 有兼容问题 只获取元素节点
+
+
+
+
+    </script>
+</body>
+</html>
